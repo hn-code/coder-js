@@ -1,58 +1,138 @@
-alert("Bienvenido/a a nuestra tienda!");
-let codeDiscount = prompt("Si cuenta con un codigo de descuento ingreselo \nahora para su compra final!");
-let dbz10 = false, dbz15 = false;
-let figCartOk = 0;
-
 //Funciones
-
-//Verifica si el cliente coloca un codigo para aplicar algun descuento
-const verifyCode = (code) => {
-    if(code.toLowerCase() == "dbz15"){
-        alert("Genial! Se le realizará un descuento del 15% en una figura");
-        dbz15 = true;
-    } else if (code.toLowerCase() == "dbz10"){
-        alert("Genial! Se le realizará un descuento del 10% en una figura");
+//Se chequea si el codigo es valido y se almacena
+//en un booleano para establecer el descuento del 10 o del 15
+const discountCodeControl = (disc) => {
+    let code = prompt("Ingrese el codigo").toLowerCase();
+    if(code == "dbz10"){
+        alert("Recibirá un descuento del 10% en esta compra!");
+        disc = true;
         dbz10 = true;
+    } else if (code == "dbz15"){
+        alert("Recibirá un descuento del 15% en esta compra!");
+        disc = true;
+        dbz15 = true;
     } else {
-        alert("Codigo no válido");
+        alert("Codigo Erroneo");
     }
+    return disc;
 }
-//Verifica la cantidad de productos ingresados al carrito para al 
-//final establecen un pago total
-const verifyCart = (cartOk) => {
-    let cart = false;
-    while (!cart){
-    let figCart = parseInt(prompt("Cuantas figuras agrego al carrito?"));
-        if(Number.isNaN(figCart) || figCart <= 0){
-            alert("Pusiste un numero equivocado, ingrese nuevamente el numero");
-        } else {
-            alert("Ok! Pasemos al paso final");
-            cartOk = figCart;
-            cart = true;
-            return cartOk;
-        }
-    }
-}
-//Aplica el descuento basado en el codigo y en la cantidad de lo comprado 
-//y mostrando el costo de toda la compra en total
-const applyDisc = (d15, d10, cart) => {
-    if(d15){
-        alert("El pago a realizar del total es de: "+ (100*cart - disc15(100)));
-    } else if (d10) {
-        alert("El pago a realizar del total es de: "+ (100*cart - disc10(100)));
+
+//En base al tipo de descuento, se calcula el precio
+//final de la compra
+const applyDiscount = (totalCost)=>{
+    if(dbz10){
+        alert("El costo a pagar con el descuento \ndel 10% es un total de: "+totalCost*0.9);
+    } else if (dbz15){
+        alert("El costo a pagar con el descuento \ndel 15% es un total de: "+totalCost*0.85);
     } else {
-        alert("El pago a realizar del total es de: "+ 100*cart);
+        alert("El costo a pagar es un total de: "+totalCost);
     }
 }
-//Realizan el calculo de cuanto se le descuenta del precio original
-const disc15 = x => x*0.15
-const disc10 = x => x*0.10
 
+//Figuras a comprar
+const figuresOnShop = [
+    {
+        nombre: 'Goku Ultra Instinct',
+        precio: 250
+    },
+    {
+        nombre: 'Vegeta Big Bang Attack',
+        precio: 250
+    },
+    {
+        nombre: 'Broly Omega Blaster',
+        precio: 250
+    },
+    {
+        nombre: 'Vegetto SSJB Final Kamehameha',
+        precio: 220
+    },
+    {
+        nombre: 'Gogeta SSJB Stardust Breaker',
+        precio: 320
+    },
+    {
+        nombre: 'Goku-Gohan Father-Son Kamehameha',
+        precio: 250
+    },
+    {
+        nombre: 'Future Trunks SSJ Ki',
+        precio: 220
+    }
+];
+//Carrito
+const cart = [];
+//Otras Variables globales
+let dbz10 = false, dbz15 = false, discApplicated = false;
 
-verifyCode(codeDiscount);
-figCartOk = verifyCart(figCartOk);
+//Menu de opciones del usuario
+let welcomeMessage = 'Bienvenido a nuestra tienda!\n';
+welcomeMessage += 'Que accion desea realizar?\n\n';
+welcomeMessage += '1- Agregar productos a carrito\n';
+welcomeMessage += '2- Ver los productos en el carrito\n';
+welcomeMessage += '3- Aplicar código de descuento\n';
+welcomeMessage += '4- Proceder a pagar\n';
+welcomeMessage += '0- Salir';
 
-alert("(Suponiendo que todas las figuras que entran \nen el descuento valen 100 dolares)");
-alert("Ha comprado "+figCartOk+" figuras");
-
-applyDisc(dbz15, dbz10, figCartOk);
+let menuState = false;
+while(!menuState) {
+    const userOption = parseInt(prompt(welcomeMessage));
+    switch (userOption) {
+        case 1:
+            //Se muestra el contenido de las figuras en la tienda
+            //en un string para que el alert() lo represente para el cliente
+            let showProd = '';
+            let i = 1;
+            for (const prop of figuresOnShop) {
+                showProd += i + '- ' + prop.nombre + ' - '+ prop.precio+'\n';
+                i++;
+            }
+            showProd += '0- Salir';
+            //Se toma la decision del cliente y se evitan errores de tipeo
+            let buy = parseInt(prompt(showProd));
+            if(buy ==0 || isNaN(buy)){
+                break;
+            } else {
+                //Se toma el array de la tienda y se agrega el elemento
+                //(segun su posicion) al carrito
+                let figureBought = figuresOnShop[buy-1];
+                cart.push(figureBought);
+            }
+            break;
+        case 2:
+            //Se recorre el carrito y se muestra el contenido
+            let showCart = '';
+            cart.forEach((el)=>{
+                showCart += '-'+el.nombre+' - '+el.precio+'\n';
+            });
+            alert(showCart);
+            break;
+        case 3:
+            //Se chequea si se le aplico un descuento ya
+            //para no tener que aplicarlo dos veces
+            if(discApplicated){
+                alert("Ya cuentas con un codigo de descuento aplicado");
+            } else {
+                discApplicated = discountCodeControl(discApplicated);
+            }
+            break;
+        case 4:
+            //Se toma el carrito y se separan los precios en un array
+            //el cual luego se le aplica el .reduce() para una sumatoria
+            //del precio total
+            const costEveryFigure = [];
+            cart.forEach(element => {
+                costEveryFigure.push(element.precio);
+            });
+            const costAllFigure = costEveryFigure.reduce((ac,el)=> ac + el, 0);
+            applyDiscount(costAllFigure);
+            break;
+        case 0: 
+            alert("Vuelva pronto!");
+            menuState = true;
+            break;
+        default:
+            alert("Elija una opcion correcta");
+            break;
+    }
+}
