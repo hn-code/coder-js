@@ -1,138 +1,216 @@
-//Funciones
-//Se chequea si el codigo es valido y se almacena
-//en un booleano para establecer el descuento del 10 o del 15
-const discountCodeControl = (disc) => {
-    let code = prompt("Ingrese el codigo").toLowerCase();
-    if(code == "dbz10"){
-        alert("Recibirá un descuento del 10% en esta compra!");
-        disc = true;
-        dbz10 = true;
-    } else if (code == "dbz15"){
-        alert("Recibirá un descuento del 15% en esta compra!");
-        disc = true;
-        dbz15 = true;
-    } else {
-        alert("Codigo Erroneo");
-    }
-    return disc;
-}
-
-//En base al tipo de descuento, se calcula el precio
-//final de la compra
-const applyDiscount = (totalCost)=>{
-    if(dbz10){
-        alert("El costo a pagar con el descuento \ndel 10% es un total de: "+totalCost*0.9);
-    } else if (dbz15){
-        alert("El costo a pagar con el descuento \ndel 15% es un total de: "+totalCost*0.85);
-    } else {
-        alert("El costo a pagar es un total de: "+totalCost);
-    }
-}
-
 //Figuras a comprar
 const figuresOnShop = [
     {
-        nombre: 'Goku Ultra Instinct',
-        precio: 250
+        nombre: 'Goku SSJ3',
+        precio: 210,
+        ligth: true,
+        tags: ['goku', 'ssj3', 'light', 'led', 'dbz'],
+        img: './img/Goku/goku1.jpg'
     },
     {
-        nombre: 'Vegeta Big Bang Attack',
-        precio: 250
+        nombre: 'Goku Ultra Instinct',
+        precio: 250,
+        ligth: true,
+        tags: ['goku', 'ui', 'light', 'led', 'dbs', 'ultra instinct'],
+        img: './img/Goku/goku2.jpg'
+    },
+    {
+        nombre: 'Goku SSJ2',
+        precio: 250,
+        light: false,
+        tags: ['goku', 'ssj2', 'dbz'],
+        img: './img/Goku/goku3.jpg'
+    },
+    {
+        nombre: 'Goku Genkidama',
+        precio: 240,
+        light: true,
+        tags: ['goku', 'genkidama', 'light', 'led', 'dbz'],
+        img: './img/Goku/goku4.jpg'
+    },
+    {
+        nombre: 'Majin Vegeta',
+        precio: 250,
+        light: false,
+        tags: ['vegeta', 'ssj2', 'majin', 'dbz'],
+        img: './img/Vegeta/vegeta1.jpg'
+    },
+    {
+        nombre: 'Vegeta Big Bang Attack', 
+        precio: 280,
+        light: true,
+        tags: ['vegeta', 'ssj', 'big', 'bang', 'dbz', 'light', 'led'],
+        img: './img/Vegeta/vegeta2.jpg'
+    },
+    {
+        nombre: 'Vegeta Final Flash',
+        precio: 200,
+        light: false,
+        tags: ['vegeta', 'ssj', 'final', 'flash', 'dbz'],
+        img: './img/Vegeta/vegeta3.jpg'
+    },
+    {
+        nombre: 'Vegeta SSJB',
+        precio: 140,
+        light: false,
+        tags: ['vegeta', 'ssjb', 'dbs'],
+        img: './img/Vegeta/vegeta4.jpg'
+    },
+    {
+        nombre: 'Broly Berserk Fists',
+        precio: 270,
+        light: true,
+        tags: ['broly', 'green', 'berserk', 'dbs', 'light', 'led', 'fist', 'fists'],
+        img: './img/Broly/broly1.jpg'
+    },
+    {
+        nombre: 'Broly SSJ',
+        precio: 180,
+        light: false,
+        tags: ['broly', 'berserk', 'dbs', 'ssj'],
+        img: './img/Broly/broly2.jpg'
     },
     {
         nombre: 'Broly Omega Blaster',
-        precio: 250
+        precio: 280,
+        ligth: true,
+        tags: ['broly', 'green', 'berserk', 'dbz', 'light', 'led', 'omega', 'blaster'],
+        img: './img/Broly/broly3.jpg'
+    },
+    {
+        nombre: 'Broly SSJL',
+        precio: 250,
+        light: true,
+        tags: ['broly', 'green', 'berserk', 'dbz', 'light', 'led', 'legendary', 'ssjl'],
+        img: './img/Broly/broly4.jpg'
     },
     {
         nombre: 'Vegetto SSJB Final Kamehameha',
-        precio: 220
+        precio: 200,
+        ligth: true,
+        tags: ['vegetto', 'final', 'kamehameha', 'ssjb', 'dbs'],
+        img: './img/Vegetto/vegetto1.jpg'
+    },
+    {
+        nombre: 'Vegetto Kick', 
+        precio: 150,
+        light: false,
+        tags: ['vegetto', 'kick', 'ssj', 'dbz'],
+        img: './img/Vegetto/vegetto2.jpg'
+    },
+    {
+        nombre: 'Vegetto SSJB', 
+        precio: 170,
+        light: false,
+        tags: ['vegetto', 'ssjb', 'dbs'],
+        img: './img/Vegetto/vegetto3.jpg'
+    },
+    {
+        nombre: 'Vegetto SSJB Ki Sword', 
+        precio: 200,
+        light: false,
+        tags: ['vegetto', 'ki', 'sword', 'ssjb', 'dbs'],
+        img: './img/Vegetto/vegetto4.jpg'
+    },
+    {
+        nombre: 'Gogeta Stardust Breaker', 
+        precio: 270,
+        light: true,
+        tags: ['gogeta', 'ssj', 'stardust', 'breaker', 'dbz' ,'light', 'led'],
+        img: './img/Gogeta/gogeta1.jpg'
+    },
+    {
+        nombre: 'Gogeta SSJ4 Kamehameha',
+        precio: 240,
+        light: true,
+        tags: ['gogeta', 'ssj4', 'kamehameha', 'dbgt', 'light', 'led'],
+        img: './img/Gogeta/gogeta2.jpg'
+    },
+    {
+        nombre: 'Gogeta SSJB',
+        precio: 150,
+        light: false,
+        tags: ['gogeta', 'ssjb', 'dbs'],
+        img: './img/Gogeta/gogeta3.jpg'
     },
     {
         nombre: 'Gogeta SSJB Stardust Breaker',
-        precio: 320
+        precio: 320,
+        ligth: true,
+        tags: ['gogeta', 'ssjb', 'stardust', 'breaker', 'dbs', 'light', 'led'],
+        img: './img/Gogeta/gogeta4.jpg'
+    },
+    {
+        nombre: 'Gohan Kaio',
+        precio: 180,
+        light: false,
+        tags: ['gohan', 'kaio', 'dbz'],
+        img: './img/Gohan/gohan1.jpg'
+    },
+    {
+        nombre: 'Future Gohan',
+        precio: 170,
+        light: false,
+        tags: ['gohan', 'future', 'ssj'],
+        img: './img/Gohan/gohan2.jpg'
+    },
+    {
+        nombre: 'Ultimate Gohan',
+        precio: 190,
+        light: false,
+        tags: ['gohan', 'ultimate', 'dbz'],
+        img: './img/Gohan/gohan3.jpg'
     },
     {
         nombre: 'Goku-Gohan Father-Son Kamehameha',
-        precio: 250
+        precio: 250,
+        light: true,
+        tags: ['gohan', 'goku', 'father', 'son', 'kamehameha', 'dbz', 'light', 'led'],
+        img: './img/Gohan/gohan4.jpg'
+    },
+    {
+        nombre: 'Future Trunks',
+        precio: 180,
+        light: false,
+        tags: ['trunks', 'future', 'dbz'],
+        img: './img/Trunks/trunks1.jpg'
+    },
+    {
+        nombre: 'Future Trunks LH',
+        precio: 190,
+        light: false,
+        tags: ['trunks', 'future', 'dbz'],
+        img: './img/Trunks/trunks2.jpg'
     },
     {
         nombre: 'Future Trunks SSJ Ki',
-        precio: 220
+        precio: 200,
+        light: false,
+        tags: ['trunks', 'future', 'ssj', 'ki'],
+        img: './img/Trunks/trunks3.jpg'
+    },
+    {
+        nombre: 'Future Trunks SSJ Sword Attack', 
+        precio: 190,
+        light: false,
+        tags: ['trunks', 'future', 'ssj', 'sword', 'attack'],
+        img: './img/Trunks/trunks4.jpg'
     }
 ];
 //Carrito
 const cart = [];
-//Otras Variables globales
-let dbz10 = false, dbz15 = false, discApplicated = false;
 
-//Menu de opciones del usuario
-let welcomeMessage = 'Bienvenido a nuestra tienda!\n';
-welcomeMessage += 'Que accion desea realizar?\n\n';
-welcomeMessage += '1- Agregar productos a carrito\n';
-welcomeMessage += '2- Ver los productos en el carrito\n';
-welcomeMessage += '3- Aplicar código de descuento\n';
-welcomeMessage += '4- Proceder a pagar\n';
-welcomeMessage += '0- Salir';
+const divGallery = document.getElementById('mainContainer');
 
-let menuState = false;
-while(!menuState) {
-    const userOption = parseInt(prompt(welcomeMessage));
-    switch (userOption) {
-        case 1:
-            //Se muestra el contenido de las figuras en la tienda
-            //en un string para que el alert() lo represente para el cliente
-            let showProd = '';
-            let i = 1;
-            for (const prop of figuresOnShop) {
-                showProd += i + '- ' + prop.nombre + ' - '+ prop.precio+'\n';
-                i++;
-            }
-            showProd += '0- Salir';
-            //Se toma la decision del cliente y se evitan errores de tipeo
-            let buy = parseInt(prompt(showProd));
-            if(buy ==0 || isNaN(buy)){
-                break;
-            } else {
-                //Se toma el array de la tienda y se agrega el elemento
-                //(segun su posicion) al carrito
-                let figureBought = figuresOnShop[buy-1];
-                cart.push(figureBought);
-            }
-            break;
-        case 2:
-            //Se recorre el carrito y se muestra el contenido
-            let showCart = '';
-            cart.forEach((el)=>{
-                showCart += '-'+el.nombre+' - '+el.precio+'\n';
-            });
-            alert(showCart);
-            break;
-        case 3:
-            //Se chequea si se le aplico un descuento ya
-            //para no tener que aplicarlo dos veces
-            if(discApplicated){
-                alert("Ya cuentas con un codigo de descuento aplicado");
-            } else {
-                discApplicated = discountCodeControl(discApplicated);
-            }
-            break;
-        case 4:
-            //Se toma el carrito y se separan los precios en un array
-            //el cual luego se le aplica el .reduce() para una sumatoria
-            //del precio total
-            const costEveryFigure = [];
-            cart.forEach(element => {
-                costEveryFigure.push(element.precio);
-            });
-            const costAllFigure = costEveryFigure.reduce((ac,el)=> ac + el, 0);
-            applyDiscount(costAllFigure);
-            break;
-        case 0: 
-            alert("Vuelva pronto!");
-            menuState = true;
-            break;
-        default:
-            alert("Elija una opcion correcta");
-            break;
-    }
+
+for (const element of figuresOnShop) {
+    divGallery.innerHTML += 
+    `<div class="card p-0 my-2 mx-2">
+        <img src="${element.img}" alt="">
+        <div class="card-body">
+            <h4 class="card-title">${element.nombre}</h4>
+            <h5>$${element.precio}</h5>
+            <button class="btn btn-primary">Agregar al carrito</button>
+        </div>
+    </div>`
 }
