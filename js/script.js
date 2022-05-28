@@ -200,17 +200,65 @@ const figuresOnShop = [
 //Carrito
 const cart = [];
 
-const divGallery = document.getElementById('mainContainer');
 
-
-for (const element of figuresOnShop) {
-    divGallery.innerHTML += 
-    `<div class="card p-0 my-2 mx-2">
-        <img src="${element.img}" alt="">
-        <div class="card-body">
-            <h4 class="card-title">${element.nombre}</h4>
-            <h5>$${element.precio}</h5>
-            <button class="btn btn-primary">Agregar al carrito</button>
-        </div>
-    </div>`
+const showFigures = () => {
+    for (const element of figuresOnShop) {
+        divGallery.innerHTML += 
+        `<div class="card p-0 my-2 mx-2">
+            <img src="${element.img}" alt="">
+            <div class="card-body">
+                <h4 class="card-title">${element.nombre}</h4>
+                <h5>$${element.precio}</h5>
+                <button class="btn btn-primary">Agregar al carrito</button>
+            </div>
+        </div>`
+    }
 }
+
+const showFiguresFiltered = (word) => {
+    //Se vacia el contenedor principal para mostrar
+    //solo lo que la persona busca filtrando el array principal
+    //que funciona como base de datos
+    divGallery.innerHTML='';
+    const arrayFiltrado = figuresOnShop.filter((element)=>element.tags.includes(word));
+    //En caso de encontrar los renderiza, en caso de no encontrar
+    //le avisa de manera sencilla al cliente que no hay lo que esta buscando
+    if(arrayFiltrado==''){
+        divGallery.innerHTML=
+        `<div class="text-light bg-dark">
+            <h3>No se encontraron los productos x_x</h3>
+        </div>`
+    }
+    for (const element of arrayFiltrado) {
+        divGallery.innerHTML += 
+        `<div class="card p-0 my-2 mx-2">
+            <img src="${element.img}" alt="">
+            <div class="card-body">
+                <h4 class="card-title">${element.nombre}</h4>
+                <h5>$${element.precio}</h5>
+                <button class="btn btn-primary">Agregar al carrito</button>
+            </div>
+        </div>`
+    }
+    
+}
+
+const divGallery = document.getElementById('mainContainer');
+const search = document.getElementById('search');
+
+//Muestra todas las figuras
+showFigures();
+
+//Escucha el buscador y renderiza segun la busqueda
+search.addEventListener('keypress', (e)=>{
+    if(e.key === 'Enter') {
+        //Se realiza la busqueda si al menos hay un caracter
+        //en caso de no haber ningun caracter carga todas las figuras
+        if(search.value.length>0) {
+            showFiguresFiltered(search.value.toLowerCase());
+        } else {
+            divGallery.innerHTML='';
+            showFigures();
+        }
+    }
+});
