@@ -3,11 +3,6 @@
    padding: 0px; 
 }
 
-@font-face {
-    font-family: "SaiyanFont";
-    src: url("./font/Saiyan-Sans.ttf");
-}
-
 body {
     background-color: rgb(40, 40, 40);
 }
@@ -34,6 +29,30 @@ body {
 
 .logoFull img {
     height: 100%;
+}
+
+.userCart {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.userCart img {
+    height: 80%;
+}
+
+.userCart img:hover {
+    cursor: pointer;
+}
+
+.userCart p {
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 0px;
 }
 
 .main {
