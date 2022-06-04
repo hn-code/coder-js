@@ -360,7 +360,7 @@ const printCart = () => {
     mainContainer.innerHTML = '';
     for (const element of cart) {
         mainContainer.innerHTML += 
-        `<div class="col-md-4 card p-0 my-y mx-2">
+        `<div class="col-md-3 card p-0 my-2 mx-2">
             <img src="${element.img}" alt="">
             <div class="card-body">
                 <h4 class="card-title">${element.nombre}</h4>
