@@ -228,7 +228,7 @@ const figuresOnShop = [
 
 //Se crea una clase con un constructor que 
 //permite tener metodos relacionados a las figuras
-//en este caso el aumento del IVA al producto
+//en este caso el aumento del impuesto al producto
 class Figure {
     constructor (id, nombre, precio, light, tags, img) {
         this.id = id;
@@ -254,7 +254,7 @@ for (const i of figuresOnShop) {
 
 //Carrito
 const cart = [];
-const cartFigures = [];
+let finalPrice = 0;
 //En caso de filtrar figuras se guardan aqui
 //ya que sera necesario tenerlas en un array
 //para bindear el boton de "Agregar al carrito"
@@ -265,7 +265,7 @@ const showFigures = () => {
     arrayFiltrado.length = 0;
     for (const element of figures) {
         mainContainer.innerHTML += 
-        `<div class="card p-0 my-2 mx-2">
+        `<div class="col-md-3 card p-0 my-2 mx-2">
             <img src="${element.img}" alt="">
             <div class="card-body">
                 <h4 class="card-title">${element.nombre}</h4>
@@ -296,7 +296,7 @@ const showFiguresFiltered = (word) => {
     }
     for (const element of arrayFiltrado) {
         mainContainer.innerHTML += 
-        `<div class="card p-0 my-2 mx-2">
+        `<div class="col-md-3 card p-0 my-2 mx-2">
             <img src="${element.img}" alt="">
             <div class="card-body">
                 <h4 class="card-title">${element.nombre}</h4>
@@ -307,40 +307,89 @@ const showFiguresFiltered = (word) => {
     }
 }
 
-//Asigna el EventListener a cada boton
+//Asigna el evento de AGREGAR a sessionStore a cada boton
 const btnCartAddEvent = () => {
     for (const element of btnCart) {
         element.addEventListener('click', () => {
             //Se guarda la figura que el usuario selecciono en el sessionStorage
-            //y se agrega al carrito
             sessionStorage.setItem(element.id, JSON.stringify(figures[(element.id-1)]));
+            updateStorageToCart();
+            calcPrice();
         });
     }
 }
+//Asigna el evento de QUITAR de sessionStore a cada boton
+const btnCartOutEvent = () => {
+    for (const element of btnCartOut) {
+        element.addEventListener('click', () => {
+            sessionStorage.removeItem(element.id);
+            updateStorageToCart();
+            calcPrice();
+            printCart();
+        });
+    };
+};
 
-//Esta funcion agrega las figuras con su correspondiente 
-//clase segun el id 
-const addFromStorageToCart = () => {
+//Esta funcion ACTUALIZA las figuras del carrito segun 
+//el sessionStore y las agrega desde figures[] segun su id
+//para no perder el metodo que calcula el impuesto
+const updateStorageToCart = () => {
     cart.length = 0;
     for (let i = 0; i < sessionStorage.length; i++) {
         let key = sessionStorage.key(i);
         if(!isNaN(parseInt(key))){
-            cart.push(figures[key]);
+            cart.push(figures[key-1]);
         }
     }
 }
 
+//Calcula el precio final
+const calcPrice = () => {
+    if(cart.length > 0) {
+        for (const it of cart) {
+            finalPrice = cart.reduce((acc,el)=>acc + el.priceWithTaxes(), 0);
+        }
+    } else finalPrice = 0;
+    cartPrice.innerHTML = `$${finalPrice}`
+};
 
+//Imprime en pantalla lo que contenga el carrito
+const printCart = () => {
+    mainContainer.innerHTML = '';
+    for (const element of cart) {
+        mainContainer.innerHTML += 
+        `<div class="col-md-4 card p-0 my-y mx-2">
+            <img src="${element.img}" alt="">
+            <div class="card-body">
+                <h4 class="card-title">${element.nombre}</h4>
+                <h5>$${element.priceWithTaxes()}</h5>
+                <button class="btn btn-danger btnCartOut" id="${element.id}">Quitar del carrito</button>
+            </div>
+        </div>`
+    }
+    btnCartOutEvent();
+};
 
 const mainContainer = document.getElementById('mainContainer');
 const search = document.getElementById('search');
 const cartPrice = document.getElementById('cartPrice');
 const btnCart = document.getElementsByClassName('btnCart');
 const cartView = document.getElementById('cartView');
+const btnCartOut = document.getElementsByClassName('btnCartOut');
+const logoHome = document.getElementById('logoHome');
+
 
 //Muestra todas las figuras
 showFigures();
 btnCartAddEvent();
+btnCartOutEvent();
+
+//Agrega el volver a ver todas las figuras del inicio
+logoHome.addEventListener('click', ()=>{
+    mainContainer.innerHTML='';
+    showFigures();
+    btnCartAddEvent();
+});
 
 //Escucha el buscador y renderiza segun la busqueda
 search.addEventListener('keypress', (e)=>{
@@ -362,20 +411,5 @@ search.addEventListener('keypress', (e)=>{
 //Escucha al logo del carrito y carga lo que la persona tenga en el carrito
 //segun el sessionStorage
 cartView.addEventListener('click', () => {
-    mainContainer.innerHTML = '';
-    addFromStorageToCart();
-    for (const element of cart) {
-        mainContainer.innerHTML += 
-        `<div class="card p-0 my-2 mx-2">
-            <img src="${element.img}" alt="">
-            <div class="card-body">
-                <h4 class="card-title">${element.nombre}</h4>
-                <h5>$${element.priceWithTaxes()}</h5>
-            </div>
-        </div>`
-    }
+    printCart();
 });
-
-
-//-Guardar en el sessionStorage un codigo de descuento ingresado para aplicar un descuento al
-//total de la compra
