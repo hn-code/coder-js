@@ -261,6 +261,7 @@ let finalPrice = 0;
 //a cada figura
 const arrayFiltrado = [];
 
+//Muestra las figuras
 const showFigures = () => {
     arrayFiltrado.length = 0;
     for (const element of figures) {
@@ -276,6 +277,7 @@ const showFigures = () => {
     }
 }
 
+//Muestra las figuras filtradas
 const showFiguresFiltered = (word) => {
     arrayFiltrado.length = 0;
     //Se vacia el contenedor principal para mostrar
