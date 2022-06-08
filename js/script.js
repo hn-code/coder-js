@@ -259,11 +259,11 @@ let finalPrice = 0;
 //ya que sera necesario tenerlas en un array
 //para bindear el boton de "Agregar al carrito"
 //a cada figura
-const arrayFiltrado = [];
+const arrayFiltered = [];
 
 //Muestra las figuras
 const showFigures = () => {
-    arrayFiltrado.length = 0;
+    arrayFiltered.length = 0;
     for (const element of figures) {
         mainContainer.innerHTML += 
         `<div class="col-md-3 card p-0 my-2 mx-2">
@@ -272,7 +272,7 @@ const showFigures = () => {
                 <h4 class="card-title">${element.nombre}</h4>
                 <h5>$${element.priceWithTaxes()}</h5>
                 <button class="btn btn-primary btnCart" id="${element.id}">Agregar al carrito</button>
-                <input type="number" id="quantity${element.id}" name="quantity" min="1" max="5">
+                <input type="number" id="quantity${element.id}" class="inputQuantity" min="1" max="5" value=1>
             </div>
         </div>`
     }
@@ -280,35 +280,23 @@ const showFigures = () => {
 
 //Muestra las figuras filtradas
 const showFiguresFiltered = (word) => {
-    arrayFiltrado.length = 0;
+    arrayFiltered.length = 0;
     //Se vacia el contenedor principal para mostrar
     //solo lo que la persona busca filtrando el array principal
     //que funciona como base de datos
     mainContainer.innerHTML='';
     figures.filter((element)=>element.tags.includes(word)).forEach(element => {
-        arrayFiltrado.push(element);
+        arrayFiltered.push(element);
     });
 
     //En caso de encontrar los renderiza, en caso de no encontrar
     //le avisa de manera sencilla al cliente que no hay lo que esta buscando
-    /************************************************************************************************************** */
-    /************************************************************************************************************** */
-    /************************************************************************************************************** */
-    if(arrayFiltrado==''){
-        mainContainer.innerHTML=
+    arrayFiltered == '' && mainContainer.innerHTML 
         `<div class="text-light bg-dark">
-            <h3>No se encontraron los productos x_x</h3>
+        <h3>No se encontraron los productos x_x</h3>
         </div>`
-    }
 
-    //Estupido error 
-    arrayFiltrado == '' && mainContainer = `<div class="text-light bg-dark">
-    <h3>No se encontraron los productos x_x</h3>
-    </div>`
-    /************************************************************************************************************** */
-    /************************************************************************************************************** */
-    /************************************************************************************************************** */
-    for (const element of arrayFiltrado) {
+    for (const element of arrayFiltered) {
         mainContainer.innerHTML += 
         `<div class="col-md-3 card p-0 my-2 mx-2">
             <img src="${element.img}" alt="">
