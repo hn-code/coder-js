@@ -272,6 +272,7 @@ const showFigures = () => {
                 <h4 class="card-title">${element.nombre}</h4>
                 <h5>$${element.priceWithTaxes()}</h5>
                 <button class="btn btn-primary btnCart" id="${element.id}">Agregar al carrito</button>
+                <input type="number" id="quantity${element.id}" name="quantity" min="1" max="5">
             </div>
         </div>`
     }
@@ -290,12 +291,23 @@ const showFiguresFiltered = (word) => {
 
     //En caso de encontrar los renderiza, en caso de no encontrar
     //le avisa de manera sencilla al cliente que no hay lo que esta buscando
+    /************************************************************************************************************** */
+    /************************************************************************************************************** */
+    /************************************************************************************************************** */
     if(arrayFiltrado==''){
         mainContainer.innerHTML=
         `<div class="text-light bg-dark">
             <h3>No se encontraron los productos x_x</h3>
         </div>`
     }
+
+    //Estupido error 
+    arrayFiltrado == '' && mainContainer = `<div class="text-light bg-dark">
+    <h3>No se encontraron los productos x_x</h3>
+    </div>`
+    /************************************************************************************************************** */
+    /************************************************************************************************************** */
+    /************************************************************************************************************** */
     for (const element of arrayFiltrado) {
         mainContainer.innerHTML += 
         `<div class="col-md-3 card p-0 my-2 mx-2">
@@ -304,6 +316,7 @@ const showFiguresFiltered = (word) => {
                 <h4 class="card-title">${element.nombre}</h4>
                 <h5>$${element.priceWithTaxes()}</h5>
                 <button class="btn btn-primary btnCart" id="${element.id}">Agregar al carrito</button>
+                <input type="number" id="quantity" name="quantity" min="1" max="5">
             </div>
         </div>`
     }

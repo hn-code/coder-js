@@ -14,12 +14,13 @@ body {
     background-color: black;
     margin: 0px;
     padding: 0px;
+    border-bottom: 2px solid azure;
 }
 
 .container-fluid {
     height: 100%;
     min-height: 100px;
-    justify-content: space-between !important;
+    justify-content: space-around !important;
 }
 
 .logoFull {
@@ -57,10 +58,6 @@ body {
     font-weight: bold;
     font-size: 2rem;
     margin-bottom: 0px;
-}
-
-.main {
-    margin-top: 5vh;
 }
 
 .cardsContainer {
