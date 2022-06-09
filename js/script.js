@@ -6,7 +6,8 @@ const figuresOnShop = [
         precio: 160,
         light: true,
         tags: ['goku', 'ssj3', 'light', 'led', 'dbz'],
-        img: './img/Goku/goku1.jpg'
+        img: './img/Goku/goku1.jpg',
+        cantidad: 1
     },
     {
         id: 2,
@@ -14,7 +15,8 @@ const figuresOnShop = [
         precio: 200,
         light: true,
         tags: ['goku', 'ui', 'light', 'led', 'dbs', 'ultra instinct'],
-        img: './img/Goku/goku2.jpg'
+        img: './img/Goku/goku2.jpg',
+        cantidad: 1
     },
     {
         id: 3,
@@ -22,7 +24,8 @@ const figuresOnShop = [
         precio: 200,
         light: false,
         tags: ['goku', 'ssj2', 'dbz'],
-        img: './img/Goku/goku3.jpg'
+        img: './img/Goku/goku3.jpg',
+        cantidad: 1
     },
     {
         id: 4,
@@ -30,7 +33,8 @@ const figuresOnShop = [
         precio: 190,
         light: true,
         tags: ['goku', 'genkidama', 'light', 'led', 'dbz'],
-        img: './img/Goku/goku4.jpg'
+        img: './img/Goku/goku4.jpg',
+        cantidad: 1
     },
     {
         id: 5,
@@ -38,7 +42,8 @@ const figuresOnShop = [
         precio: 200,
         light: false,
         tags: ['vegeta', 'ssj2', 'majin', 'dbz'],
-        img: './img/Vegeta/vegeta1.jpg'
+        img: './img/Vegeta/vegeta1.jpg',
+        cantidad: 1
     },
     {
         id: 6,
@@ -46,7 +51,8 @@ const figuresOnShop = [
         precio: 230,
         light: true,
         tags: ['vegeta', 'ssj', 'big', 'bang', 'dbz', 'light', 'led'],
-        img: './img/Vegeta/vegeta2.jpg'
+        img: './img/Vegeta/vegeta2.jpg',
+        cantidad: 1
     },
     {
         id: 7,
@@ -54,7 +60,8 @@ const figuresOnShop = [
         precio: 160,
         light: false,
         tags: ['vegeta', 'ssj', 'final', 'flash', 'dbz'],
-        img: './img/Vegeta/vegeta3.jpg'
+        img: './img/Vegeta/vegeta3.jpg',
+        cantidad: 1
     },
     {
         id: 8,
@@ -62,7 +69,8 @@ const figuresOnShop = [
         precio: 100,
         light: false,
         tags: ['vegeta', 'ssjb', 'dbs'],
-        img: './img/Vegeta/vegeta4.jpg'
+        img: './img/Vegeta/vegeta4.jpg',
+        cantidad: 1
     },
     {
         id: 9,
@@ -70,7 +78,8 @@ const figuresOnShop = [
         precio: 220,
         light: true,
         tags: ['broly', 'green', 'berserk', 'dbs', 'light', 'led', 'fist', 'fists'],
-        img: './img/Broly/broly1.jpg'
+        img: './img/Broly/broly1.jpg',
+        cantidad: 1
     },
     {
         id: 10,
@@ -78,7 +87,8 @@ const figuresOnShop = [
         precio: 130,
         light: false,
         tags: ['broly', 'berserk', 'dbs', 'ssj'],
-        img: './img/Broly/broly2.jpg'
+        img: './img/Broly/broly2.jpg',
+        cantidad: 1
     },
     {
         id: 11,
@@ -86,7 +96,8 @@ const figuresOnShop = [
         precio: 230,
         light: true,
         tags: ['broly', 'green', 'berserk', 'dbz', 'light', 'led', 'omega', 'blaster'],
-        img: './img/Broly/broly3.jpg'
+        img: './img/Broly/broly3.jpg',
+        cantidad: 1
     },
     {
         id: 12,
@@ -94,7 +105,8 @@ const figuresOnShop = [
         precio: 200,
         light: true,
         tags: ['broly', 'green', 'berserk', 'dbz', 'light', 'led', 'legendary', 'ssjl'],
-        img: './img/Broly/broly4.jpg'
+        img: './img/Broly/broly4.jpg',
+        cantidad: 1
     },
     {
         id: 13,
@@ -102,7 +114,8 @@ const figuresOnShop = [
         precio: 180,
         light: true,
         tags: ['vegetto', 'final', 'kamehameha', 'ssjb', 'dbs'],
-        img: './img/Vegetto/vegetto1.jpg'
+        img: './img/Vegetto/vegetto1.jpg',
+        cantidad: 1
     },
     {
         id: 14,
@@ -110,7 +123,8 @@ const figuresOnShop = [
         precio: 120,
         light: false,
         tags: ['vegetto', 'kick', 'ssj', 'dbz'],
-        img: './img/Vegetto/vegetto2.jpg'
+        img: './img/Vegetto/vegetto2.jpg',
+        cantidad: 1
     },
     {
         id: 15,
@@ -118,7 +132,8 @@ const figuresOnShop = [
         precio: 130,
         light: false,
         tags: ['vegetto', 'ssjb', 'dbs'],
-        img: './img/Vegetto/vegetto3.jpg'
+        img: './img/Vegetto/vegetto3.jpg',
+        cantidad: 1
     },
     {
         id: 16,
@@ -126,7 +141,8 @@ const figuresOnShop = [
         precio: 150,
         light: false,
         tags: ['vegetto', 'ki', 'sword', 'ssjb', 'dbs'],
-        img: './img/Vegetto/vegetto4.jpg'
+        img: './img/Vegetto/vegetto4.jpg',
+        cantidad: 1
     },
     {
         id: 17,
@@ -134,7 +150,8 @@ const figuresOnShop = [
         precio: 220,
         light: true,
         tags: ['gogeta', 'ssj', 'stardust', 'breaker', 'dbz' ,'light', 'led'],
-        img: './img/Gogeta/gogeta1.jpg'
+        img: './img/Gogeta/gogeta1.jpg',
+        cantidad: 1
     },
     {
         id: 18,
@@ -142,7 +159,8 @@ const figuresOnShop = [
         precio: 190,
         light: true,
         tags: ['gogeta', 'ssj4', 'kamehameha', 'dbgt', 'light', 'led'],
-        img: './img/Gogeta/gogeta2.jpg'
+        img: './img/Gogeta/gogeta2.jpg',
+        cantidad: 1
     },
     {
         id: 19,
@@ -150,7 +168,8 @@ const figuresOnShop = [
         precio: 100,
         light: false,
         tags: ['gogeta', 'ssjb', 'dbs'],
-        img: './img/Gogeta/gogeta3.jpg'
+        img: './img/Gogeta/gogeta3.jpg',
+        cantidad: 1
     },
     {
         id: 20,
@@ -158,7 +177,8 @@ const figuresOnShop = [
         precio: 250,
         light: true,
         tags: ['gogeta', 'ssjb', 'stardust', 'breaker', 'dbs', 'light', 'led'],
-        img: './img/Gogeta/gogeta4.jpg'
+        img: './img/Gogeta/gogeta4.jpg',
+        cantidad: 1
     },
     {
         id: 21,
@@ -166,7 +186,8 @@ const figuresOnShop = [
         precio: 130,
         light: false,
         tags: ['gohan', 'kaio', 'dbz'],
-        img: './img/Gohan/gohan1.jpg'
+        img: './img/Gohan/gohan1.jpg',
+        cantidad: 1
     },
     {
         id: 22,
@@ -174,7 +195,8 @@ const figuresOnShop = [
         precio: 120,
         light: false,
         tags: ['gohan', 'future', 'ssj'],
-        img: './img/Gohan/gohan2.jpg'
+        img: './img/Gohan/gohan2.jpg',
+        cantidad: 1
     },
     {
         id: 23,
@@ -182,7 +204,8 @@ const figuresOnShop = [
         precio: 140,
         light: false,
         tags: ['gohan', 'ultimate', 'dbz'],
-        img: './img/Gohan/gohan3.jpg'
+        img: './img/Gohan/gohan3.jpg',
+        cantidad: 1
     },
     {
         id: 24,
@@ -190,7 +213,8 @@ const figuresOnShop = [
         precio: 200,
         light: true,
         tags: ['gohan', 'goku', 'father', 'son', 'kamehameha', 'dbz', 'light', 'led'],
-        img: './img/Gohan/gohan4.jpg'
+        img: './img/Gohan/gohan4.jpg',
+        cantidad: 1
     },
     {
         id: 25,
@@ -198,7 +222,8 @@ const figuresOnShop = [
         precio: 130,
         light: false,
         tags: ['trunks', 'future', 'dbz'],
-        img: './img/Trunks/trunks1.jpg'
+        img: './img/Trunks/trunks1.jpg',
+        cantidad: 1
     },
     {
         id: 26,
@@ -206,7 +231,8 @@ const figuresOnShop = [
         precio: 140,
         light: false,
         tags: ['trunks', 'future', 'dbz'],
-        img: './img/Trunks/trunks2.jpg'
+        img: './img/Trunks/trunks2.jpg',
+        cantidad: 1
     },
     {
         id: 27,
@@ -214,7 +240,8 @@ const figuresOnShop = [
         precio: 150,
         light: false,
         tags: ['trunks', 'future', 'ssj', 'ki'],
-        img: './img/Trunks/trunks3.jpg'
+        img: './img/Trunks/trunks3.jpg',
+        cantidad: 1
     },
     {
         id: 28,
@@ -222,7 +249,8 @@ const figuresOnShop = [
         precio: 140,
         light: false,
         tags: ['trunks', 'future', 'ssj', 'sword', 'attack'],
-        img: './img/Trunks/trunks4.jpg'
+        img: './img/Trunks/trunks4.jpg',
+        cantidad: 1
     }
 ];
 
@@ -230,16 +258,20 @@ const figuresOnShop = [
 //permite tener metodos relacionados a las figuras
 //en este caso el aumento del impuesto al producto
 class Figure {
-    constructor (id, nombre, precio, light, tags, img) {
+    constructor (id, nombre, precio, light, tags, img, cantidad) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
         this.light = light;
         this.tags = tags;
         this.img = img;
+        this.cantidad = cantidad;
     }
     priceWithTaxes(){
         return Math.round(this.precio*1.22);
+    }
+    changeQuantity(n){
+        this.cantidad = this.cantidad*n;
     }
 }
 
@@ -248,13 +280,14 @@ class Figure {
 //crear a cada objeto sus propios metodos como el priceWithTaxes() por ejemplo
 const figures = [];
 for (const i of figuresOnShop) {
-    const figure = new Figure (i.id, i.nombre, i.precio, i.light, i.tags, i.img)
+    const figure = new Figure (i.id, i.nombre, i.precio, i.light, i.tags, i.img, i.cantidad)
     figures.push(figure);
 }
 
 //Carrito
 const cart = [];
 let finalPrice = 0;
+let valueSelected = 0;
 //En caso de filtrar figuras se guardan aqui
 //ya que sera necesario tenerlas en un array
 //para bindear el boton de "Agregar al carrito"
@@ -262,21 +295,20 @@ let finalPrice = 0;
 const arrayFiltered = [];
 
 //Muestra las figuras
-const showFigures = () => {
-    arrayFiltered.length = 0;
-    for (const element of figures) {
+const showCards = (array) => {
+    for (const element of array) {
         mainContainer.innerHTML += 
         `<div class="col-md-3 card p-0 my-2 mx-2">
             <img src="${element.img}" alt="">
             <div class="card-body">
                 <h4 class="card-title">${element.nombre}</h4>
                 <h5>$${element.priceWithTaxes()}</h5>
-                <button class="btn btn-primary btnCart" id="${element.id}">Agregar al carrito</button>
-                <input type="number" id="quantity${element.id}" class="inputQuantity" min="1" max="5" value=1>
+                <button type="button" class="btn btn-primary btnCart"
+                id="${element.id}">Agregar al carrito</button>
             </div>
         </div>`
     }
-}
+};
 
 //Muestra las figuras filtradas
 const showFiguresFiltered = (word) => {
@@ -291,41 +323,85 @@ const showFiguresFiltered = (word) => {
 
     //En caso de encontrar los renderiza, en caso de no encontrar
     //le avisa de manera sencilla al cliente que no hay lo que esta buscando
-    arrayFiltered == '' && mainContainer.innerHTML 
-        `<div class="text-light bg-dark">
+    if(arrayFiltered == ''){
+        mainContainer.innerHTML += 
+        `<div class="text-light bg-dark info">
         <h3>No se encontraron los productos x_x</h3>
         </div>`
+    }
+    //Si todo esta ok con la palabra buscada y esta relacionada con las figuras
+    //se muestran las figuras relacionadas
+    showCards(arrayFiltered);
+}
 
-    for (const element of arrayFiltered) {
-        mainContainer.innerHTML += 
-        `<div class="col-md-3 card p-0 my-2 mx-2">
-            <img src="${element.img}" alt="">
-            <div class="card-body">
-                <h4 class="card-title">${element.nombre}</h4>
-                <h5>$${element.priceWithTaxes()}</h5>
-                <button class="btn btn-primary btnCart" id="${element.id}">Agregar al carrito</button>
-                <input type="number" id="quantity" name="quantity" min="1" max="5">
-            </div>
-        </div>`
+//Esta funcion asincrona permite abrir un modal
+//para poder elegir la cantidad de figuras a comprar
+const chooseQuantity = async (element) => {
+    const {value : value} = await Swal.fire({
+        title: `¿Cuantas figuras de ${element.nombre} quiere?`,
+        input: 'select',
+        inputOptions: {1:'1', 2:'2', 3:'3', 4:'4', 5:'5' },
+        inputPlaceholder: 'Elija una cantidad',
+        showCancelButton: true,
+        inputValidator: (value) => {
+          return new Promise((resolve) => {
+            if (value<=5 || value>=1) {
+              resolve()
+            } else {
+              resolve('Seleccione un valor correcto')
+            }
+          })
+        }
+      })
+    if (value == 1) {
+        Swal.fire(`Se agregó ${value} figura al carrito`);
+    } else if (value>1) {
+        Swal.fire(`Se agregaron ${value} figuras al carrito`)
+    }
+    //El !localStorage.getItem() se usa para no modificar la cantidad que hay en el carrito
+    if(value<=5 && value>=1){
+        //Se selecciona la figura del array que tenemos en la tienda
+        const figureToAdd = figures[(element.id-1)];
+        //Se le modifica la cantidad que se quiere agregar al carrito
+        figureToAdd.changeQuantity(value);
+        //Y se agrega al localStorage ya modificada la cantidad
+        localStorage.setItem(element.id, JSON.stringify(figureToAdd));
+        updateStorageToCart();
+        calcPrice();
+        //Se vuelve la cantidad de nuevo a 1 para evitar acumulaciones al agregar y quitar
+        //la figura del carrito (no sabia como resolverlo de otra manera :c)
+        figureToAdd.cantidad=1;
     }
 }
 
-//Asigna el evento de AGREGAR a sessionStore a cada boton
+//Asigna el evento de AGREGAR a localStorage a cada boton
 const btnCartAddEvent = () => {
     for (const element of btnCart) {
         element.addEventListener('click', () => {
-            //Se guarda la figura que el usuario selecciono en el sessionStorage
-            sessionStorage.setItem(element.id, JSON.stringify(figures[(element.id-1)]));
-            updateStorageToCart();
-            calcPrice();
+            if(!localStorage.getItem(element.id)){
+                chooseQuantity(element);
+            } else {
+                Swal.fire({
+                    title: 'Ya tienes la figura en el carrito!',
+                    text: '¿Quieres cambiar la cantidad?',
+                    showCancelButton: true,
+                    confirmButtonText: 'Cambiar',
+                    }).then( async (result) => {
+                    if (result.isConfirmed) {
+                        //Si la persona elige cambiar la cantidad
+                        //se ejecuta nuevamente la funcion de cambiar la cantidad
+                        chooseQuantity(element);
+                    } 
+                })
+            }
         });
     }
 }
-//Asigna el evento de QUITAR de sessionStore a cada boton
+//Asigna el evento de QUITAR de localStorage a cada boton
 const btnCartOutEvent = () => {
     for (const element of btnCartOut) {
         element.addEventListener('click', () => {
-            sessionStorage.removeItem(element.id);
+            localStorage.removeItem(element.id);
             updateStorageToCart();
             calcPrice();
             printCart();
@@ -334,24 +410,33 @@ const btnCartOutEvent = () => {
 };
 
 //Esta funcion ACTUALIZA las figuras del carrito segun 
-//el sessionStore y las agrega desde figures[] segun su id
+//el localStorage y las agrega desde figures[] segun su id
 //para no perder el metodo que calcula el impuesto
 const updateStorageToCart = () => {
     cart.length = 0;
-    for (let i = 0; i < sessionStorage.length; i++) {
-        let key = sessionStorage.key(i);
+    for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
         if(!isNaN(parseInt(key))){
+            let quantity = JSON.parse(localStorage.getItem(key)).cantidad;
+            console.log(quantity); //Al estar dentro del for, el clg lee todas las cantidades y las imprime
+            //////////////Aqui hay que agregar la cantidad de figuras... creo
+            //////////////Segun indique el localStorage
+            //////////////Lo que esta pasando es que se agregan del array de figures donde la cantidad es 1
             cart.push(figures[key-1]);
-        }
+        }  
     }
 }
 
 //Calcula el precio final
 const calcPrice = () => {
     if(cart.length > 0) {
-        for (const it of cart) {
-            finalPrice = cart.reduce((acc,el)=>acc + el.priceWithTaxes(), 0);
+        //Se crea un array que se le acumularan los precios de las figuras
+        //multiplicado por la cantidad que la persona quiera agregar
+        const arrayPrices = [];
+        for (const element of cart) {
+            arrayPrices.push(element.priceWithTaxes());
         }
+        finalPrice = arrayPrices.reduce((acc,el)=>acc + el, 0);
     } else finalPrice = 0;
     cartPrice.innerHTML = `$${finalPrice}`
 };
@@ -367,10 +452,18 @@ const printCart = () => {
                 <h4 class="card-title">${element.nombre}</h4>
                 <h5>$${element.priceWithTaxes()}</h5>
                 <button class="btn btn-danger btnCartOut" id="${element.id}">Quitar del carrito</button>
+                <p>x${element.cantidad}</p>
             </div>
         </div>`
     }
+    
+    if(cart.length == 0) {
+        mainContainer.innerHTML += `<div class="text-light bg-dark info">
+        <h3>No tienes nada en el carrito!</h3>
+        </div>`
+    }
     btnCartOutEvent();
+
 };
 
 const mainContainer = document.getElementById('mainContainer');
@@ -383,14 +476,17 @@ const logoHome = document.getElementById('logoHome');
 
 
 //Muestra todas las figuras
-showFigures();
+showCards(figures);
 btnCartAddEvent();
 btnCartOutEvent();
+updateStorageToCart();
+calcPrice();
 
 //Agrega el volver a ver todas las figuras del inicio
 logoHome.addEventListener('click', ()=>{
     mainContainer.innerHTML='';
-    showFigures();
+    arrayFiltered.length = 0;
+    showCards(figures);
     btnCartAddEvent();
 });
 
@@ -405,14 +501,15 @@ search.addEventListener('keypress', (e)=>{
             btnCartAddEvent();
         } else {
             mainContainer.innerHTML='';
-            showFigures();
+            arrayFiltered.length = 0;
+            showCards(figures);
             btnCartAddEvent();
         }
     }
 });
 
 //Escucha al logo del carrito y carga lo que la persona tenga en el carrito
-//segun el sessionStorage
+//segun el localStorage
 cartView.addEventListener('click', () => {
     printCart();
 });

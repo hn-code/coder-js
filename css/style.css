@@ -94,7 +94,10 @@ body {
 
 .inputQuantity {
     text-align: center;
+}
 
+.info {
+    text-align: center;
 }
 
 @media (max-width: 767px) {
