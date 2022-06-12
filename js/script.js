@@ -389,11 +389,9 @@ const btnCartAddEvent = () => {
                     showCancelButton: true,
                     confirmButtonText: 'Cambiar',
                     }).then( async (result) => {
-                    if (result.isConfirmed) {
                         //Si la persona elige cambiar la cantidad
-                        //se ejecuta nuevamente la funcion de cambiar la cantidad
-                        chooseQuantity(element);
-                    } 
+                        //se ejecuta nuevamente la funcion de cambiar la cantidad - sugar syntax
+                    result.isConfirmed && chooseQuantity(element);
                 })
             }
         });
@@ -417,10 +415,8 @@ const updateStorageToCart = () => {
     cart.length = 0;
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
-        if(!isNaN(parseInt(key))){           
-            //Aqui se agregan al carrito
-            cart.push(JSON.parse(localStorage.getItem(key)));
-        }
+        //Aqui se agregan al carrito - sugar syntax
+        !isNaN(parseInt(key)) && cart.push(JSON.parse(localStorage.getItem(key)));
     }
 }
 
