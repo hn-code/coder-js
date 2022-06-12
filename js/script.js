@@ -338,7 +338,7 @@ const showFiguresFiltered = (word) => {
 //para poder elegir la cantidad de figuras a comprar
 const chooseQuantity = async (element) => {
     const {value : value} = await Swal.fire({
-        title: `¿Cuantas figuras de ${element.nombre} quiere?`,
+        title: `¿Cuantas figuras de ${figures[parseInt(element.id)-1].nombre} quiere?`,
         input: 'select',
         inputOptions: {1:'1', 2:'2', 3:'3', 4:'4', 5:'5' },
         inputPlaceholder: 'Elija una cantidad',
