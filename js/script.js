@@ -412,23 +412,13 @@ const btnCartOutEvent = () => {
 };
 
 //Esta funcion ACTUALIZA las figuras del carrito segun 
-//el localStorage y las agrega desde figures[] segun su id
-//para no perder el metodo que calcula el impuesto
+//el localStorage
 const updateStorageToCart = () => {
     cart.length = 0;
-    //Este for recorre el localStorage y agrega al carrito
-    //desde figures[] PERO con cantidad 1, como vienen desde dicho array
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
-        if(!isNaN(parseInt(key))){
-            //Se recorre cada figura del localStorage y segun su cantidad se toma
-            //una figura del stock, y se le cambia la propiedad de cantidad
-            //figures[key-1].changeQuantity(JSON.parse(localStorage.getItem(key)).cantidad);
-            //figures[key-1].cantidad = JSON.parse(localStorage.getItem(key)).cantidad;
-            
+        if(!isNaN(parseInt(key))){           
             //Aqui se agregan al carrito
-            //cart.push(figures[key-1]);
-
             cart.push(JSON.parse(localStorage.getItem(key)));
         }
     }
@@ -441,7 +431,6 @@ const calcPrice = () => {
         //multiplicado por la cantidad que la persona quiera agregar
         const arrayPrices = [];
         for (const element of cart) {
-            //arrayPrices.push(element.priceWithTaxes());
             arrayPrices.push(element.priceForQuantity);
         }
         finalPrice = arrayPrices.reduce((acc,el)=>acc + el, 0);
