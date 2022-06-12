@@ -364,6 +364,8 @@ const chooseQuantity = async (element) => {
         const figureToAdd = figures[(element.id-1)];
         //Se le modifica la cantidad que se quiere agregar al carrito
         figureToAdd.changeQuantity(value);
+        //Se le agrega una propiedad llamada priceForQuantity
+        figureToAdd.priceForQuantity = figureToAdd.priceWithTaxes()*figureToAdd.cantidad;
         //Y se agrega al localStorage ya modificada la cantidad
         localStorage.setItem(element.id, JSON.stringify(figureToAdd));
         updateStorageToCart();
@@ -414,16 +416,21 @@ const btnCartOutEvent = () => {
 //para no perder el metodo que calcula el impuesto
 const updateStorageToCart = () => {
     cart.length = 0;
+    //Este for recorre el localStorage y agrega al carrito
+    //desde figures[] PERO con cantidad 1, como vienen desde dicho array
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
         if(!isNaN(parseInt(key))){
-            let quantity = JSON.parse(localStorage.getItem(key)).cantidad;
-            console.log(quantity); //Al estar dentro del for, el clg lee todas las cantidades y las imprime
-            //////////////Aqui hay que agregar la cantidad de figuras... creo
-            //////////////Segun indique el localStorage
-            //////////////Lo que esta pasando es que se agregan del array de figures donde la cantidad es 1
-            cart.push(figures[key-1]);
-        }  
+            //Se recorre cada figura del localStorage y segun su cantidad se toma
+            //una figura del stock, y se le cambia la propiedad de cantidad
+            //figures[key-1].changeQuantity(JSON.parse(localStorage.getItem(key)).cantidad);
+            //figures[key-1].cantidad = JSON.parse(localStorage.getItem(key)).cantidad;
+            
+            //Aqui se agregan al carrito
+            //cart.push(figures[key-1]);
+
+            cart.push(JSON.parse(localStorage.getItem(key)));
+        }
     }
 }
 
@@ -434,7 +441,8 @@ const calcPrice = () => {
         //multiplicado por la cantidad que la persona quiera agregar
         const arrayPrices = [];
         for (const element of cart) {
-            arrayPrices.push(element.priceWithTaxes());
+            //arrayPrices.push(element.priceWithTaxes());
+            arrayPrices.push(element.priceForQuantity);
         }
         finalPrice = arrayPrices.reduce((acc,el)=>acc + el, 0);
     } else finalPrice = 0;
@@ -450,9 +458,9 @@ const printCart = () => {
             <img src="${element.img}" alt="">
             <div class="card-body">
                 <h4 class="card-title">${element.nombre}</h4>
-                <h5>$${element.priceWithTaxes()}</h5>
+                <h5>$${(element.priceForQuantity)/element.cantidad}</h5>
                 <button class="btn btn-danger btnCartOut" id="${element.id}">Quitar del carrito</button>
-                <p>x${element.cantidad}</p>
+                <h5>x${element.cantidad}</h5>
             </div>
         </div>`
     }
