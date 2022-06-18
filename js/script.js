@@ -175,7 +175,7 @@ const btnCartOutEvent = () => {
             Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: `Se quito la figura del carrito`,
+                title: `Se quitó la figura del carrito`,
                 showConfirmButton: false,
                 timer: 1500
               });
