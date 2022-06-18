@@ -117,6 +117,7 @@ body {
     border: 2px solid white;
     border-radius: 20px;
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 @media (min-width: 768px) AND (max-width: 1206px) {
