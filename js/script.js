@@ -1,258 +1,20 @@
-//Figuras a comprar
-const figuresOnShop = [
-    {
-        id: 1,
-        nombre: 'Goku SSJ3',
-        precio: 160,
-        light: true,
-        tags: ['goku', 'ssj3', 'light', 'led', 'dbz'],
-        img: './img/Goku/goku1.jpg',
-        cantidad: 1
-    },
-    {
-        id: 2,
-        nombre: 'Goku Ultra Instinct',
-        precio: 200,
-        light: true,
-        tags: ['goku', 'ui', 'light', 'led', 'dbs', 'ultra instinct'],
-        img: './img/Goku/goku2.jpg',
-        cantidad: 1
-    },
-    {
-        id: 3,
-        nombre: 'Goku SSJ2',
-        precio: 200,
-        light: false,
-        tags: ['goku', 'ssj2', 'dbz'],
-        img: './img/Goku/goku3.jpg',
-        cantidad: 1
-    },
-    {
-        id: 4,
-        nombre: 'Goku Genkidama',
-        precio: 190,
-        light: true,
-        tags: ['goku', 'genkidama', 'light', 'led', 'dbz'],
-        img: './img/Goku/goku4.jpg',
-        cantidad: 1
-    },
-    {
-        id: 5,
-        nombre: 'Majin Vegeta',
-        precio: 200,
-        light: false,
-        tags: ['vegeta', 'ssj2', 'majin', 'dbz'],
-        img: './img/Vegeta/vegeta1.jpg',
-        cantidad: 1
-    },
-    {
-        id: 6,
-        nombre: 'Vegeta Big Bang Attack', 
-        precio: 230,
-        light: true,
-        tags: ['vegeta', 'ssj', 'big', 'bang', 'dbz', 'light', 'led'],
-        img: './img/Vegeta/vegeta2.jpg',
-        cantidad: 1
-    },
-    {
-        id: 7,
-        nombre: 'Vegeta Final Flash',
-        precio: 160,
-        light: false,
-        tags: ['vegeta', 'ssj', 'final', 'flash', 'dbz'],
-        img: './img/Vegeta/vegeta3.jpg',
-        cantidad: 1
-    },
-    {
-        id: 8,
-        nombre: 'Vegeta SSJB',
-        precio: 100,
-        light: false,
-        tags: ['vegeta', 'ssjb', 'dbs'],
-        img: './img/Vegeta/vegeta4.jpg',
-        cantidad: 1
-    },
-    {
-        id: 9,
-        nombre: 'Broly Berserk Fists',
-        precio: 220,
-        light: true,
-        tags: ['broly', 'green', 'berserk', 'dbs', 'light', 'led', 'fist', 'fists'],
-        img: './img/Broly/broly1.jpg',
-        cantidad: 1
-    },
-    {
-        id: 10,
-        nombre: 'Broly SSJ',
-        precio: 130,
-        light: false,
-        tags: ['broly', 'berserk', 'dbs', 'ssj'],
-        img: './img/Broly/broly2.jpg',
-        cantidad: 1
-    },
-    {
-        id: 11,
-        nombre: 'Broly Omega Blaster',
-        precio: 230,
-        light: true,
-        tags: ['broly', 'green', 'berserk', 'dbz', 'light', 'led', 'omega', 'blaster'],
-        img: './img/Broly/broly3.jpg',
-        cantidad: 1
-    },
-    {
-        id: 12,
-        nombre: 'Broly SSJL',
-        precio: 200,
-        light: true,
-        tags: ['broly', 'green', 'berserk', 'dbz', 'light', 'led', 'legendary', 'ssjl'],
-        img: './img/Broly/broly4.jpg',
-        cantidad: 1
-    },
-    {
-        id: 13,
-        nombre: 'Vegetto SSJB Final Kamehameha',
-        precio: 180,
-        light: true,
-        tags: ['vegetto', 'final', 'kamehameha', 'ssjb', 'dbs'],
-        img: './img/Vegetto/vegetto1.jpg',
-        cantidad: 1
-    },
-    {
-        id: 14,
-        nombre: 'Vegetto Kick', 
-        precio: 120,
-        light: false,
-        tags: ['vegetto', 'kick', 'ssj', 'dbz'],
-        img: './img/Vegetto/vegetto2.jpg',
-        cantidad: 1
-    },
-    {
-        id: 15,
-        nombre: 'Vegetto SSJB', 
-        precio: 130,
-        light: false,
-        tags: ['vegetto', 'ssjb', 'dbs'],
-        img: './img/Vegetto/vegetto3.jpg',
-        cantidad: 1
-    },
-    {
-        id: 16,
-        nombre: 'Vegetto SSJB Ki Sword', 
-        precio: 150,
-        light: false,
-        tags: ['vegetto', 'ki', 'sword', 'ssjb', 'dbs'],
-        img: './img/Vegetto/vegetto4.jpg',
-        cantidad: 1
-    },
-    {
-        id: 17,
-        nombre: 'Gogeta Stardust Breaker', 
-        precio: 220,
-        light: true,
-        tags: ['gogeta', 'ssj', 'stardust', 'breaker', 'dbz' ,'light', 'led'],
-        img: './img/Gogeta/gogeta1.jpg',
-        cantidad: 1
-    },
-    {
-        id: 18,
-        nombre: 'Gogeta SSJ4 Kamehameha',
-        precio: 190,
-        light: true,
-        tags: ['gogeta', 'ssj4', 'kamehameha', 'dbgt', 'light', 'led'],
-        img: './img/Gogeta/gogeta2.jpg',
-        cantidad: 1
-    },
-    {
-        id: 19,
-        nombre: 'Gogeta SSJB',
-        precio: 100,
-        light: false,
-        tags: ['gogeta', 'ssjb', 'dbs'],
-        img: './img/Gogeta/gogeta3.jpg',
-        cantidad: 1
-    },
-    {
-        id: 20,
-        nombre: 'Gogeta SSJB Stardust Breaker',
-        precio: 250,
-        light: true,
-        tags: ['gogeta', 'ssjb', 'stardust', 'breaker', 'dbs', 'light', 'led'],
-        img: './img/Gogeta/gogeta4.jpg',
-        cantidad: 1
-    },
-    {
-        id: 21,
-        nombre: 'Gohan Kaio',
-        precio: 130,
-        light: false,
-        tags: ['gohan', 'kaio', 'dbz'],
-        img: './img/Gohan/gohan1.jpg',
-        cantidad: 1
-    },
-    {
-        id: 22,
-        nombre: 'Future Gohan',
-        precio: 120,
-        light: false,
-        tags: ['gohan', 'future', 'ssj'],
-        img: './img/Gohan/gohan2.jpg',
-        cantidad: 1
-    },
-    {
-        id: 23,
-        nombre: 'Ultimate Gohan',
-        precio: 140,
-        light: false,
-        tags: ['gohan', 'ultimate', 'dbz'],
-        img: './img/Gohan/gohan3.jpg',
-        cantidad: 1
-    },
-    {
-        id: 24,
-        nombre: 'Goku-Gohan Father-Son Kamehameha',
-        precio: 200,
-        light: true,
-        tags: ['gohan', 'goku', 'father', 'son', 'kamehameha', 'dbz', 'light', 'led'],
-        img: './img/Gohan/gohan4.jpg',
-        cantidad: 1
-    },
-    {
-        id: 25,
-        nombre: 'Future Trunks',
-        precio: 130,
-        light: false,
-        tags: ['trunks', 'future', 'dbz'],
-        img: './img/Trunks/trunks1.jpg',
-        cantidad: 1
-    },
-    {
-        id: 26,
-        nombre: 'Future Trunks LH',
-        precio: 140,
-        light: false,
-        tags: ['trunks', 'future', 'dbz'],
-        img: './img/Trunks/trunks2.jpg',
-        cantidad: 1
-    },
-    {
-        id: 27,
-        nombre: 'Future Trunks SSJ Ki',
-        precio: 150,
-        light: false,
-        tags: ['trunks', 'future', 'ssj', 'ki'],
-        img: './img/Trunks/trunks3.jpg',
-        cantidad: 1
-    },
-    {
-        id: 28,
-        nombre: 'Future Trunks SSJ Sword Attack', 
-        precio: 140,
-        light: false,
-        tags: ['trunks', 'future', 'ssj', 'sword', 'attack'],
-        img: './img/Trunks/trunks4.jpg',
-        cantidad: 1
+//Se hace un fetch a una base de datos de Firebase
+//y se guardan las figuras en un array llamado dbFiguresFirebase
+//para trabajar con ellas
+const getFirebase = async () => {
+    const response = await fetch(urlDB);
+    const data = await response.json();
+    for (const i of data) {
+        const figure = new Figure (i.id, i.nombre, i.precio, i.light, i.tags, i.img, i.cantidad)
+        dbFiguresFirebase.push(figure);
     }
-];
+    showCards(dbFiguresFirebase);
+    btnCartAddEvent();
+    btnCartOutEvent();
+    updateStorageToCart();
+    calcPrice();
+    
+}
 
 //Se crea una clase con un constructor que 
 //permite tener metodos relacionados a las figuras
@@ -275,19 +37,19 @@ class Figure {
     }
 }
 
-//Se almacenan las figuras en un array para no trabajarlas
-//directamente de la fuente desde donde se esten trayendo y permitiendole
-//crear a cada objeto sus propios metodos como el priceWithTaxes() por ejemplo
-const figures = [];
-for (const i of figuresOnShop) {
-    const figure = new Figure (i.id, i.nombre, i.precio, i.light, i.tags, i.img, i.cantidad)
-    figures.push(figure);
-}
+//Array donde se guardan los objetos traidos de la base de datos
+//y ya modificados para que no sean "objetos" sino "Figuras" (convertidos a esa clase)
+//para permitirle usar los diferentes metodos con los que cuentan cada figura 
+const dbFiguresFirebase = [];
 
 //Carrito
 const cart = [];
 let finalPrice = 0;
 let valueSelected = 0;
+
+//URL de la base de datos con JSON
+const urlDB = 'https://tiendaz-7b058-default-rtdb.firebaseio.com/figures.json';
+
 //En caso de filtrar figuras se guardan aqui
 //ya que sera necesario tenerlas en un array
 //para bindear el boton de "Agregar al carrito"
@@ -296,6 +58,7 @@ const arrayFiltered = [];
 
 //Muestra las figuras
 const showCards = (array) => {
+    mainContainer.innerHTML = '';
     for (const element of array) {
         mainContainer.innerHTML += 
         `<div class="col-md-3 card p-0 my-2 mx-2">
@@ -315,9 +78,8 @@ const showFiguresFiltered = (word) => {
     arrayFiltered.length = 0;
     //Se vacia el contenedor principal para mostrar
     //solo lo que la persona busca filtrando el array principal
-    //que funciona como base de datos
     mainContainer.innerHTML='';
-    figures.filter((element)=>element.tags.includes(word)).forEach(element => {
+    dbFiguresFirebase.filter((element)=>element.tags.includes(word)).forEach(element => {
         arrayFiltered.push(element);
     });
 
@@ -338,7 +100,7 @@ const showFiguresFiltered = (word) => {
 //para poder elegir la cantidad de figuras a comprar
 const chooseQuantity = async (element) => {
     const {value : value} = await Swal.fire({
-        title: `¿Cuantas figuras de ${figures[parseInt(element.id)-1].nombre} quiere?`,
+        title: `¿Cuantas figuras de ${dbFiguresFirebase[parseInt(element.id)-1].nombre} quiere?`,
         input: 'select',
         inputOptions: {1:'1', 2:'2', 3:'3', 4:'4', 5:'5' },
         inputPlaceholder: 'Elija una cantidad',
@@ -361,7 +123,7 @@ const chooseQuantity = async (element) => {
     //El !localStorage.getItem() se usa para no modificar la cantidad que hay en el carrito
     if(value<=5 && value>=1){
         //Se selecciona la figura del array que tenemos en la tienda
-        const figureToAdd = figures[(element.id-1)];
+        const figureToAdd = dbFiguresFirebase[(element.id-1)];
         //Se le modifica la cantidad que se quiere agregar al carrito
         figureToAdd.changeQuantity(value);
         //Se le agrega una propiedad llamada priceForQuantity
@@ -448,8 +210,7 @@ const printCart = () => {
                 <h5>x${element.cantidad}</h5>
             </div>
         </div>`
-    }
-    
+    }    
     if(cart.length == 0) {
         mainContainer.innerHTML += `<div class="text-light bg-dark info">
         <h3>No tienes nada en el carrito!</h3>
@@ -468,18 +229,15 @@ const btnCartOut = document.getElementsByClassName('btnCartOut');
 const logoHome = document.getElementById('logoHome');
 
 
-//Muestra todas las figuras
-showCards(figures);
-btnCartAddEvent();
-btnCartOutEvent();
-updateStorageToCart();
-calcPrice();
+//Se ejecuta la funcion que carga las figuras en el array principal
+//denominado dbFiguresFirebase, para poder trabajar con ellas en la pagina
+getFirebase();
+
 
 //Agrega el volver a ver todas las figuras del inicio
 logoHome.addEventListener('click', ()=>{
-    mainContainer.innerHTML='';
     arrayFiltered.length = 0;
-    showCards(figures);
+    showCards(dbFiguresFirebase);
     btnCartAddEvent();
 });
 
@@ -493,9 +251,8 @@ search.addEventListener('keypress', (e)=>{
             showFiguresFiltered(search.value.toLowerCase());
             btnCartAddEvent();
         } else {
-            mainContainer.innerHTML='';
             arrayFiltered.length = 0;
-            showCards(figures);
+            showCards(dbFiguresFirebase);
             btnCartAddEvent();
         }
     }
