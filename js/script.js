@@ -58,7 +58,6 @@ const arrayFiltered = [];
 
 //Muestra las figuras
 const showCards = (array) => {
-    mainContainer.innerHTML = '';
     for (const element of array) {
         mainContainer.innerHTML += 
         `<div class="col-md-3 card p-0 my-2 mx-2">
@@ -87,9 +86,9 @@ const showFiguresFiltered = (word) => {
     //le avisa de manera sencilla al cliente que no hay lo que esta buscando
     if(arrayFiltered == ''){
         mainContainer.innerHTML += 
-        `<div class="text-light bg-dark info">
-        <h3>No se encontraron los productos x_x</h3>
-        </div>`
+        `<div class="text-light info">
+            <p>No se encontraron los productos (x_x)</p>
+        </div>`;
     }
     //Si todo esta ok con la palabra buscada y esta relacionada con las figuras
     //se muestran las figuras relacionadas
@@ -104,6 +103,7 @@ const chooseQuantity = async (element) => {
         input: 'select',
         inputOptions: {1:'1', 2:'2', 3:'3', 4:'4', 5:'5' },
         inputPlaceholder: 'Elija una cantidad',
+        confirmButtonColor: '#0d6efd',
         showCancelButton: true,
         inputValidator: (value) => {
           return new Promise((resolve) => {
@@ -116,9 +116,17 @@ const chooseQuantity = async (element) => {
         }
       })
     if (value == 1) {
-        Swal.fire(`Se agregó ${value} figura al carrito`);
+        Swal.fire({
+            icon: 'success',
+            title: `Se agregó ${value} figura al carrito`,
+            confirmButtonColor: '#0d6efd'
+        });
     } else if (value>1) {
-        Swal.fire(`Se agregaron ${value} figuras al carrito`)
+        Swal.fire({
+            icon: 'success',
+            title: `Se agregaron ${value} figuras al carrito`,
+            confirmButtonColor: '#0d6efd'
+        });
     }
     //El !localStorage.getItem() se usa para no modificar la cantidad que hay en el carrito
     if(value<=5 && value>=1){
@@ -149,6 +157,7 @@ const btnCartAddEvent = () => {
                     title: 'Ya tienes la figura en el carrito!',
                     text: '¿Quieres cambiar la cantidad?',
                     showCancelButton: true,
+                    confirmButtonColor: '#0d6efd',
                     confirmButtonText: 'Cambiar',
                     }).then( async (result) => {
                         //Si la persona elige cambiar la cantidad
@@ -163,6 +172,13 @@ const btnCartAddEvent = () => {
 const btnCartOutEvent = () => {
     for (const element of btnCartOut) {
         element.addEventListener('click', () => {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: `Se quito la figura del carrito`,
+                showConfirmButton: false,
+                timer: 1500
+              });
             localStorage.removeItem(element.id);
             updateStorageToCart();
             calcPrice();
@@ -212,8 +228,8 @@ const printCart = () => {
         </div>`
     }    
     if(cart.length == 0) {
-        mainContainer.innerHTML += `<div class="text-light bg-dark info">
-        <h3>No tienes nada en el carrito!</h3>
+        mainContainer.innerHTML += `<div class="text-light info">
+        <p>No tienes nada en el carrito (u_u)</p>
         </div>`
     }
     btnCartOutEvent();
@@ -236,6 +252,7 @@ getFirebase();
 
 //Agrega el volver a ver todas las figuras del inicio
 logoHome.addEventListener('click', ()=>{
+    mainContainer.innerHTML = '';
     arrayFiltered.length = 0;
     showCards(dbFiguresFirebase);
     btnCartAddEvent();
@@ -251,6 +268,7 @@ search.addEventListener('keypress', (e)=>{
             showFiguresFiltered(search.value.toLowerCase());
             btnCartAddEvent();
         } else {
+            mainContainer.innerHTML = '';
             arrayFiltered.length = 0;
             showCards(dbFiguresFirebase);
             btnCartAddEvent();
