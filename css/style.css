@@ -4,8 +4,12 @@
 }
 
 body {
-    background: rgb(40,40,40);
-    background: linear-gradient(90deg, rgb(15,15,15) 0%, rgba(80,80,80,1) 50%, rgba(15,15,15,1) 100%);
+    background-image: url('../img/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0);
 }
 
 .navbarP {
