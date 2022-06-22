@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'saiyan';
+    src: url('./font/Saiyan-Sans.ttf');
+}
+
 * {
    margin: 0px;
    padding: 0px; 
@@ -93,7 +98,19 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    width: 80%;
+    width: 90%;
+    padding: 5vh 0vw;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 2px solid white; 
+    border-radius: 7px;
+}
+
+.sectionTitle {
+    text-align: center;
+    color: white;
+    font-family: Saiyan;
+    font-size: calc(8vh);
+    letter-spacing: 4px;
 }
 
 .card {
@@ -126,13 +143,9 @@ body {
 }
 
 .info {
-    padding: 5vw;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 30px;
-    border: 2px solid white;
-    border-radius: 20px;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .payContainer {
@@ -140,7 +153,6 @@ body {
     height: 20vh;
     background-color:rgb(230, 230, 230);
     border-radius: 10px;
-    border: 5px solid black;
     box-shadow: 0px 0px 30px white;
     display: flex;
     justify-content: space-around;
@@ -169,7 +181,6 @@ body {
     height: 70vh;
     background-color:rgb(230, 230, 230);
     border-radius: 10px;
-    border: 5px solid black;
     box-shadow: 0px 0px 30px white;
     display: flex;
     justify-content: space-around;
@@ -243,22 +254,23 @@ body {
     line-height: 2rem;
     text-align: center;
     margin: auto;
-    font-size: 0.8rem;
+    font-size: calc(2vh);
 }
 
 .paymentPrice {
-    font-size: 1.5rem !important;
+    font-size: calc(5vh) !important;
     font-weight: bold;
 }
 
 .paymentReceipt img {
-    width: 50%;
+    width: 70%;
     margin: auto;
 }
 
 .backBtn {
     width: 80px;
     height: 40px;
+    border-radius: 7px;
 }
 
 @media (min-width: 768px) AND (max-width: 1206px) {

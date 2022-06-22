@@ -16,7 +16,7 @@ const getFirebase = async () => {
     );
     dbFiguresFirebase.push(figure);
   }
-  showCards(dbFiguresFirebase);
+  showCards(dbFiguresFirebase, 'Figuras');
   btnCartAddEvent();
   btnCartOutEvent();
   updateStorageToCart();
@@ -64,7 +64,10 @@ const urlDB = "https://tiendaz-7b058-default-rtdb.firebaseio.com/figures.json";
 const arrayFiltered = [];
 
 //Muestra las figuras
-const showCards = (array) => {
+const showCards = (array, section) => {
+  if(section) {
+    mainContainer.innerHTML += `<p class="sectionTitle">${section}</p>`
+  }
   for (const element of array) {
     mainContainer.innerHTML += `<div class="col-md-3 card p-0 my-2 mx-2">
             <img src="${element.img}" alt="">
@@ -96,10 +99,12 @@ const showFiguresFiltered = (word) => {
     mainContainer.innerHTML += `<div class="text-light info">
             <p>No se encontraron los productos (x_x)</p>
         </div>`;
+  } else {
+    //Si todo esta ok con la palabra buscada y esta relacionada con las figuras
+    //se muestran las figuras relacionadas
+    showCards(arrayFiltered, 'Figuras Encontradas');
   }
-  //Si todo esta ok con la palabra buscada y esta relacionada con las figuras
-  //se muestran las figuras relacionadas
-  showCards(arrayFiltered);
+  
 };
 
 //Esta funcion asincrona permite abrir un modal
@@ -227,24 +232,26 @@ const calcPrice = () => {
 //Imprime en pantalla lo que contenga el carrito
 const printCart = () => {
   mainContainer.innerHTML = "";
-  for (const element of cart) {
-    mainContainer.innerHTML += `<div class="col-md-3 card p-0 my-2 mx-2">
-            <img src="${element.img}" alt="">
-            <div class="card-body">
-                <h4 class="card-title">${element.nombre}</h4>
-                <h5>$${element.priceForQuantity / element.cantidad}</h5>
-                <button class="btn btn-danger btnCartOut" id="${
-                  element.id
-                }">Quitar del carrito</button>
-                <h5>x${element.cantidad}</h5>
-            </div>
-        </div>`;
-  }
   if (cart.length == 0) {
     mainContainer.innerHTML += `<div class="text-light info">
         <p>No tienes nada en el carrito (u_u)</p>
         </div>`;
-  }
+  } else {
+    mainContainer.innerHTML += '<p class="sectionTitle">Carrito</p>'
+    for (const element of cart) {
+      mainContainer.innerHTML += `<div class="col-md-3 card p-0 my-2 mx-2">
+              <img src="${element.img}" alt="">
+              <div class="card-body">
+                  <h4 class="card-title">${element.nombre}</h4>
+                  <h5>$${element.priceForQuantity / element.cantidad}</h5>
+                  <button class="btn btn-danger btnCartOut" id="${
+                    element.id
+                  }">Quitar del carrito</button>
+                  <h5>x${element.cantidad}</h5>
+              </div>
+          </div>`;
+      }
+    }
   btnCartOutEvent();
 };
 
@@ -338,7 +345,7 @@ const paymentWithCard = (payCard) => {
             updateStorageToCart();
             calcPrice();
             mainContainer.innerHTML = '';
-            showCards(dbFiguresFirebase);
+            showCards(dbFiguresFirebase, 'Figuras');
             btnCartAddEvent();
             btnCartOutEvent();
           })
@@ -399,7 +406,7 @@ const paymentWithBank = (payBank) => {
       updateStorageToCart();
       calcPrice();
       mainContainer.innerHTML = '';
-      showCards(dbFiguresFirebase);
+      showCards(dbFiguresFirebase, 'Figuras');
       btnCartAddEvent();
       btnCartOutEvent();
     });
@@ -446,7 +453,7 @@ getFirebase();
 logoHome.addEventListener("click", () => {
   mainContainer.innerHTML = "";
   arrayFiltered.length = 0;
-  showCards(dbFiguresFirebase);
+  showCards(dbFiguresFirebase, 'Figuras');
   btnCartAddEvent();
 });
 
@@ -462,7 +469,7 @@ search.addEventListener("keypress", (e) => {
     } else {
       mainContainer.innerHTML = "";
       arrayFiltered.length = 0;
-      showCards(dbFiguresFirebase);
+      showCards(dbFiguresFirebase, 'Figuras');
       btnCartAddEvent();
     }
   }
@@ -476,17 +483,11 @@ cartView.addEventListener("click", () => {
 
 //Easter Egg de gratis (?
 easterEggBtn.addEventListener('click', () => {
-   /*  if(cartView.src == 'http://127.0.0.1:5500/img/cart.png'){
+   if(cartView.src == 'http://127.0.0.1:5500/img/cart.png'){
       cartView.src = 'http://127.0.0.1:5500/img/cart3.png'
     } else {
       cartView.src = 'http://127.0.0.1:5500/img/cart.png'
-    } */
-
-    if(cartView.src == 'https://hn-code.github.io/coder-js/img/cart.png') {
-      cartView.src = 'https://hn-code.github.io/coder-js/img/cart3.png';
-    } else {
-      cartView.src = 'https://hn-code.github.io/coder-js/img/cart.png';
-    }
+    } 
 });
 
 //Boton de finalizacion de compra / pago
