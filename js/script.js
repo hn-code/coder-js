@@ -446,6 +446,7 @@ const btnPay = document.getElementById("btnPay");
 const month = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 const year = [2022, 2023, 2024, 2025, 2026, 2027, 2028];
 
+
 //Se ejecuta la funcion que carga las figuras en el array principal
 //denominado dbFiguresFirebase, para poder trabajar con ellas en la pagina
 getFirebase();
@@ -484,10 +485,10 @@ cartView.addEventListener("click", () => {
 
 //Easter Egg de gratis (?
 easterEggBtn.addEventListener('click', () => {
-   if(cartView.src == 'http://127.0.0.1:5500/img/cart.png'){
-      cartView.src = 'http://127.0.0.1:5500/img/cart3.png'
+   if(cartView.src == 'https://hn-code.github.io/coder-js/img/cart.png'){
+      cartView.src = 'https://hn-code.github.io/coder-js/img/cart3.png'
     } else {
-      cartView.src = 'http://127.0.0.1:5500/img/cart.png'
+      cartView.src = 'https://hn-code.github.io/coder-js/img/cart.png'
     } 
 });
 

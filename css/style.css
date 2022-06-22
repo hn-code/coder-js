@@ -40,7 +40,7 @@ body {
 
 .logoFull {
     display: inline-block;
-    height: 70%;
+    height: 9vh;
 }
 
 .logoFull img {
@@ -51,9 +51,16 @@ body {
     cursor: pointer;
 }
 
+.easterEggClass {
+    background-color: black;
+    border: 2px solid white;
+    color: white;
+    width: 30px;
+    border-radius: 50px;
+}
+
 .userCart {
-    height: 100%;
-    width: 30%;
+    height: 10vh;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -61,19 +68,11 @@ body {
 }
 
 .userCart img {
-    height: 80%;
+    height: 100%;
 }
 
 .userCart img:hover {
     cursor: pointer;
-}
-
-.easterEggClass {
-    background-color: black;
-    border: 2px solid white;
-    color: white;
-    width: 30px;
-    border-radius: 50px;
 }
 
 .userCart p {
@@ -88,6 +87,10 @@ body {
     border-radius: 7px;
     padding: 5px;
     font-size: large;
+}
+
+.menuToggle {
+    display: none;
 }
 
 .main {
@@ -296,28 +299,28 @@ body {
         width: 60%;
     }
 
-    .navbarP {
-        height: 20vh;
-    }
-
     .main {
         margin-top: 30vh;
     }
 
-    .container-fluid {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .logoFull ,
-    .userCart ,
-    .searchClass{
-        height: 20%;
-    }
 }
 
 @media (max-width: 1000px) {
+
+    .logoFull {
+        height: 5vh;
+    }
+
+    .navbarP {
+        height: 20vh;
+    }
+
+    .container-fluid {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
     .payContainerCard,
     .payContainerBank {
         flex-direction: column;
