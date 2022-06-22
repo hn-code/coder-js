@@ -481,6 +481,12 @@ easterEggBtn.addEventListener('click', () => {
     } else {
       cartView.src = 'http://127.0.0.1:5500/img/cart.png'
     }
+
+    if(cartView.src == 'https://hn-code.github.io/coder-js/img/cart.png') {
+      cartView.src = 'https://hn-code.github.io/coder-js/img/cart3.png';
+    } else {
+      cartView.src = 'https://hn-code.github.io/coder-js/img/cart.png';
+    }
 });
 
 //Boton de finalizacion de compra / pago
