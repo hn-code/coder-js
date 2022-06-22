@@ -213,6 +213,11 @@ const updateStorageToCart = () => {
     //Aqui se agregan al carrito - sugar syntax
     !isNaN(parseInt(key)) && cart.push(JSON.parse(localStorage.getItem(key)));
   }
+  if(cart.length == 0){
+    btnPay.style.display = 'none';
+  } else {
+    btnPay.style.display = 'block';
+  }
 };
 
 //Calcula el precio final
@@ -235,7 +240,16 @@ const printCart = () => {
   if (cart.length == 0) {
     mainContainer.innerHTML += `<div class="text-light info">
         <p>No tienes nada en el carrito (u_u)</p>
+        <button class="btn-warning backBtn" id="btnBackCart">Atras</button>
         </div>`;
+    const btnBackCart = document.getElementById('btnBackCart');
+    btnBackCart.addEventListener('click', () => {
+      mainContainer.innerHTML = '';
+      showCards(dbFiguresFirebase, 'Figuras');
+      btnCartAddEvent();
+      btnCartOutEvent();
+      search.value = '';
+    });
   } else {
     mainContainer.innerHTML += '<p class="sectionTitle">Carrito</p>'
     for (const element of cart) {
@@ -348,6 +362,7 @@ const paymentWithCard = (payCard) => {
             showCards(dbFiguresFirebase, 'Figuras');
             btnCartAddEvent();
             btnCartOutEvent();
+            search.value = '';
           })
         }
       });
@@ -410,6 +425,7 @@ const paymentWithBank = (payBank) => {
       showCards(dbFiguresFirebase, 'Figuras');
       btnCartAddEvent();
       btnCartOutEvent();
+      search.value = '';
     });
   });
 }
@@ -457,11 +473,11 @@ logoHome.addEventListener("click", () => {
   arrayFiltered.length = 0;
   showCards(dbFiguresFirebase, 'Figuras');
   btnCartAddEvent();
+  search.value = '';
 });
 
 //Escucha el buscador y renderiza segun la busqueda
-search.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
+search.addEventListener("keyup", () => {
     //Se realiza la busqueda si al menos hay un caracter
     //en caso de no haber ningun caracter carga todas las figuras
     //y se bindea el boton segun su indice a su figura
@@ -474,7 +490,6 @@ search.addEventListener("keypress", (e) => {
       showCards(dbFiguresFirebase, 'Figuras');
       btnCartAddEvent();
     }
-  }
 });
 
 //Escucha al logo del carrito y carga lo que la persona tenga en el carrito
@@ -511,8 +526,8 @@ btnPay.addEventListener("click", () => {
     Swal.fire({
       title: "¿Querés confirmar la compra?",
       showCancelButton: true,
-      cancelButtonText: "Aún no",
-      confirmButtonText: "Pagar",
+      cancelButtonText: "Cancelar",
+      confirmButtonText: "Confirmar",
       confirmButtonColor: "#0d6efd",
     }).then((result) => {
       if (result.isConfirmed) {

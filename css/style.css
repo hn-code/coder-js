@@ -276,12 +276,16 @@ body {
     width: 80px;
     height: 40px;
     border-radius: 7px;
+    font-size: small;
 }
 
 .btnConfirm {
-    width: 30vw;
+    width: 20vw;
+    height: 5vh;
+    font-size: 2vh;
     border-radius: 7px;
 }
+
 
 @media (min-width: 768px) AND (max-width: 1206px) {
     .card {
