@@ -271,7 +271,7 @@ const paymentWithCard = (payCard) => {
           <select type="select" class="creditCardYear" placeholder="Year" id="selectYear"></select>
           <input type="text" class="creditCardCode" placeholder="CVV" maxlength="4" id="cvvCard"></input>
         </div>
-        <button type="submit" id="btnConfirm" class="btn-primary p-2 mt-5">Confirmar Compra</button>
+        <button type="submit" id="btnConfirm" class="btn-primary p-2 mt-5 btnConfirm">Confirmar Compra</button>
       </form>
       <div class="paymentReceipt">
         <img src="./img/logo.png" alt="logo de la tienda">
@@ -371,7 +371,7 @@ const paymentWithBank = (payBank) => {
       <p>Nuestro número de cuenta es: <p><b>N° 03-03-456-11111</b></p></p>
       <p>Nuestro mail es: <p><b>tiendaz@uncorreofalso.com</b></p></p>
       <p>Nuestro Whatsapp es: <p><b>(+123) 45678910</b></p></p>
-      <button type="submit" id="btnConfirm" class="btn-primary p-2 ">Confirmar Compra</button>
+      <button type="submit" id="btnConfirm" class="btn-primary p-2 btnConfirm">Confirmar Compra</button>
     </div>
     <div class="paymentReceipt">
       <img src="./img/logo.png" alt="logo de la tienda">

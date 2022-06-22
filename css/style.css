@@ -203,6 +203,7 @@ body {
     text-align: center;
     font-size: 14px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 0.5rem;
 }
 
 .payContainerCard form {
@@ -273,6 +274,10 @@ body {
     border-radius: 7px;
 }
 
+.btnConfirm {
+    border-radius: 7px;
+}
+
 @media (min-width: 768px) AND (max-width: 1206px) {
     .card {
         width: 40%;
@@ -308,4 +313,8 @@ body {
     .searchClass{
         height: 20%;
     }
+}
+
+@media (max-width: 1000px) {
+    
 }
