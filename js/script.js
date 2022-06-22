@@ -378,7 +378,8 @@ const paymentWithBank = (payBank) => {
       <p id="paymentReceiptList"></p>
       <p class="paymentPrice">$${finalPrice}</p>
       </div>
-    </div>`;
+    </div>
+    `;
 
     const paymentReceiptList = document.getElementById('paymentReceiptList');
     const backBtn = document.getElementById('backBtn');

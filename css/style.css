@@ -195,6 +195,7 @@ body {
 .payContainerBank .infoBank {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 50%;
 }
 
@@ -275,6 +276,7 @@ body {
 }
 
 .btnConfirm {
+    width: 30vw;
     border-radius: 7px;
 }
 
@@ -316,5 +318,20 @@ body {
 }
 
 @media (max-width: 1000px) {
-    
+    .payContainerCard,
+    .payContainerBank {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .payContainerBank .infoBank,
+    .payContainerCard form {
+        padding: 5vh 0vw;
+        width: 90%;
+    }
+
+    .paymentReceipt {
+        min-height: 70vh;
+        margin-bottom: 5vh;
+    }
 }
