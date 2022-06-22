@@ -476,11 +476,11 @@ cartView.addEventListener("click", () => {
 
 //Easter Egg de gratis (?
 easterEggBtn.addEventListener('click', () => {
-    if(cartView.src == 'http://127.0.0.1:5500/img/cart.png'){
+   /*  if(cartView.src == 'http://127.0.0.1:5500/img/cart.png'){
       cartView.src = 'http://127.0.0.1:5500/img/cart3.png'
     } else {
       cartView.src = 'http://127.0.0.1:5500/img/cart.png'
-    }
+    } */
 
     if(cartView.src == 'https://hn-code.github.io/coder-js/img/cart.png') {
       cartView.src = 'https://hn-code.github.io/coder-js/img/cart3.png';
