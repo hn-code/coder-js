@@ -114,15 +114,18 @@ const chooseQuantity = async (element) => {
     title: `¿Cuantas figuras de ${
       dbFiguresFirebase[parseInt(element.id) - 1].nombre
     } quiere?`,
-    input: "select",
-    inputOptions: { 1: "1", 2: "2", 3: "3", 4: "4", 5: "5" },
-    inputPlaceholder: "Elija una cantidad",
+    input: "number",
+    inputPlaceholder: "Elija una cantidad entre 1 - 100",
+    inputAttributes: {
+      min: 1,
+      max: 100,
+    },
     confirmButtonColor: "#0d6efd",
     showCancelButton: true,
     cancelButtonText: "Cancelar",
     inputValidator: (value) => {
       return new Promise((resolve) => {
-        if (value <= 5 || value >= 1) {
+        if (value <= 100 || value >= 1) {
           resolve();
         } else {
           resolve("Seleccione un valor correcto");
@@ -136,15 +139,26 @@ const chooseQuantity = async (element) => {
       title: `Se agregó ${value} figura al carrito`,
       confirmButtonColor: "#0d6efd",
     });
-  } else if (value > 1) {
+  } else if (value > 1 && value <= 100) {
     Swal.fire({
       icon: "success",
       title: `Se agregaron ${value} figuras al carrito`,
       confirmButtonColor: "#0d6efd",
     });
+  } else if (value > 100 || value < 1){
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    Toast.fire({
+      icon: "error",
+      title: "Ingresó un valor incorrecto",
+    });
   }
   //El !localStorage.getItem() se usa para no modificar la cantidad que hay en el carrito
-  if (value <= 5 && value >= 1) {
+  if (value <= 100 && value >= 1) {
     //Se selecciona la figura del array que tenemos en la tienda
     const figureToAdd = dbFiguresFirebase[element.id - 1];
     //Se le modifica la cantidad que se quiere agregar al carrito
@@ -509,20 +523,7 @@ easterEggBtn.addEventListener('click', () => {
 
 //Boton de finalizacion de compra / pago
 btnPay.addEventListener("click", () => {
-  if (cart.length == 0) {
-    const Toast = Swal.mixin({
-      toast: true,
-      position: "top",
-      showConfirmButton: false,
-      timer: 1500,
-    });
-
-    Toast.fire({
-      icon: "info",
-      title: "El carrito esta vacio!",
-    });
-  } else {
-    printCart();
+  printCart();
     Swal.fire({
       title: "¿Querés confirmar la compra?",
       showCancelButton: true,
@@ -537,5 +538,4 @@ btnPay.addEventListener("click", () => {
         resolve();
       }
     });
-  }
 });
