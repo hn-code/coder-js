@@ -291,6 +291,11 @@ const paymentWithCard = (payCard) => {
     mainContainer.innerHTML = `
     <button class="backBtn btn-warning" id="backBtn">Atras</button>
       <div class="payContainerCard">
+      <div class="paymentReceipt">
+        <img src="./img/logo.png" alt="logo de la tienda">
+        <p id="paymentReceiptList"></p>
+        <p class="paymentPrice">$${finalPrice}</p>
+      </div>
       <form>
         <input type="text" class="nameForm" placeholder="Titular" id="nameCard"></input>
         <input type="text" class="creditCardNum" placeholder="N° de tarjeta" id="numberCard"></input>
@@ -301,11 +306,6 @@ const paymentWithCard = (payCard) => {
         </div>
         <button type="submit" id="btnConfirm" class="btn-primary p-2 mt-5 btnConfirm">Confirmar Compra</button>
       </form>
-      <div class="paymentReceipt">
-        <img src="./img/logo.png" alt="logo de la tienda">
-        <p id="paymentReceiptList"></p>
-        <p class="paymentPrice">$${finalPrice}</p>
-      </div>
       </div>`;
     
       const nameCard = document.getElementById('nameCard');
@@ -393,7 +393,12 @@ const paymentWithBank = (payBank) => {
     mainContainer.innerHTML = `
     <button class="backBtn btn-warning" id="backBtn">Atras</button>
     <div class="payContainerBank">
-    <div class="infoBank">
+    <div class="paymentReceipt">
+      <img src="./img/logo.png" alt="logo de la tienda">
+      <p id="paymentReceiptList"></p>
+      <p class="paymentPrice">$${finalPrice}</p>
+      </div>
+      <div class="infoBank">
       <p>Depósito Cuenta Bancaria:</p>
       <p>Para realizar la transferencia basta con que realice el depósito y nos envíe via mail o Whatsapp el comprobante de depósito.</p>
       <p>Una vez confirmada la compra, se le reserva su contenido del carrito de compras por 72hs, de no haberse abonado el depósito, estas volverán al stock de la tienda</p>
@@ -402,11 +407,6 @@ const paymentWithBank = (payBank) => {
       <p>Nuestro Whatsapp es: <p><b>(+123) 45678910</b></p></p>
       <button type="submit" id="btnConfirm" class="btn-primary p-2 btnConfirm">Confirmar Compra</button>
     </div>
-    <div class="paymentReceipt">
-      <img src="./img/logo.png" alt="logo de la tienda">
-      <p id="paymentReceiptList"></p>
-      <p class="paymentPrice">$${finalPrice}</p>
-      </div>
     </div>
     `;
 
