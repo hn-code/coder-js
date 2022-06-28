@@ -173,6 +173,7 @@ const chooseQuantity = async (element) => {
     //Se vuelve la cantidad de nuevo a 1 para evitar acumulaciones al agregar y quitar
     //la figura del carrito (no sabia como resolverlo de otra manera :c)
     figureToAdd.cantidad = 1;
+    figureToAdd.priceForQuantity = figureToAdd.priceWithTaxes();
   }
 };
 
@@ -203,6 +204,35 @@ const btnCartAddEvent = () => {
 const btnCartOutEvent = () => {
   for (const element of btnCartOut) {
     element.addEventListener("click", () => {
+      //Se toma la figura que le hizo click en el boton de quitar
+      const figureOnCart = JSON.parse(localStorage.getItem(element.id));
+      //Se analiza si hay mas de una o si es una sola su cantidad, en caso de
+      //ser una sola directamente se elimina la tarjeta 
+      if(figureOnCart.cantidad > 1) {
+        //Se reduce en 1 la cantidad de figuras en el carrito
+        figureOnCart.cantidad -= 1;
+        //Para hacer unos de los metodos de priceWithTaxes() de la clase de Figures
+        //Es necesario traer desde la base de datos la figura que sea de ese id
+        const figureToModify = dbFiguresFirebase[figureOnCart.id - 1];
+        figureToModify.priceForQuantity = figureToModify.priceWithTaxes()*figureOnCart.cantidad;
+        figureToModify.cantidad = figureOnCart.cantidad;
+        //Una vez realizadas las modificaciones de la cantidad y del precio se guardan
+        //en el localStorage
+        localStorage.setItem(element.id, JSON.stringify(figureToModify));
+        //Se reinicia lo modificado para no afectar la dbFiguresFirebase
+        figureToModify.cantidad = 1;
+        figureToModify.priceForQuantity = figureToModify.priceWithTaxes();
+        JSON.parse(localStorage.getItem(element.id));
+        updateStorageToCart();
+        calcPrice();
+        printCart();
+
+      } else {
+        localStorage.removeItem(element.id);
+        updateStorageToCart();
+        calcPrice();
+        printCart();
+      }
       Swal.fire({
         position: "center",
         icon: "success",
@@ -210,10 +240,6 @@ const btnCartOutEvent = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      localStorage.removeItem(element.id);
-      updateStorageToCart();
-      calcPrice();
-      printCart();
     });
   }
 };
@@ -302,7 +328,7 @@ const paymentWithCard = (payCard) => {
         <div>
           <select type="select" class="creditCardMonth" placeholder="Month" id="selectMonth"></select>
           <select type="select" class="creditCardYear" placeholder="Year" id="selectYear"></select>
-          <input type="text" class="creditCardCode" placeholder="CVV" maxlength="4" id="cvvCard"></input>
+          <input type="text" class="creditCardCode" placeholder="CVV" maxlength="3" id="cvvCard"></input>
         </div>
         <button type="submit" id="btnConfirm" class="btn-primary p-2 mt-5 btnConfirm">Confirmar Compra</button>
       </form>
