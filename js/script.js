@@ -301,7 +301,7 @@ const printCart = () => {
                   <button class="btn btn-danger btnCartOut" id="${
                     element.id
                   }">Quitar del carrito</button>
-                  <h5>x${element.cantidad}</h5>
+                  <h4>x${element.cantidad}</h4>
               </div>
           </div>`;
       }

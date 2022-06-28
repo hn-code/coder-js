@@ -286,6 +286,9 @@ body {
     border-radius: 7px;
 }
 
+.btnCartOut {
+    margin: 5px 0px;
+}
 
 @media (min-width: 768px) AND (max-width: 1206px) {
     .card {
